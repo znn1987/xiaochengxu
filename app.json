@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarTitleText": "优乐游平台",
+    "navigationBarTextStyle":"black"
+  }
+}
