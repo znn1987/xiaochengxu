@@ -1,0 +1,20 @@
+<!--pages/roomAssign/roomAssign.wxml-->
+<view  style="display:flex;">
+  <view class="section"  >
+    <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
+    {{dateStart}}
+  </picker>
+  </view>
+  至
+  <view class="section"  style="display:flex;">
+    <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
+    {{dateEnd}}
+  </picker>
+  </view>
+<button bindtap="queryTypes"> 查询房间数目 </button>
+</view>
+<block wx:for="{{datas}}" wx:key="idx" wx:for-item="data" wx:for-index="idx">
+<view >
+  {{data.hotelPhone}}--{{data.hotelName}}--{{data.typeName}}--{{data.sum}}间
+</view>
+</block>

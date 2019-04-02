@@ -1,0 +1,44 @@
+<!--pages/myTeam/myTeam.wxml-->
+<text>完善个人信息后可查询队伍成员</text>
+<view class="itemView" style="display:flex;">团队名称：
+    <text class="input" name="teamName" placeholder=""
+    bindinput ="teamNameInput"/>{{teamName}}
+</view>
+<view style="display:flex;padding:30rpx"> 
+<button bindtap="room"> 在线分房 </button> 
+<button bindtap="queryRoom"> 房间查看 </button>
+<button bindtap="sign"> 签到/点名 </button>
+</view>
+<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" >
+团队总人数：{{allUser}}人   ----    已签到人数（不含队长）：{{signUser}}人 
+</view>
+<view>
+<block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
+<view style='display: flex;justify-content: right;' >
+
+  {{user.userName}}---{{user.typeName}}
+
+  <button bindtap="signUserBtn" type="{{user.sign == 0?'primary':''}}" class="{{user.type != 1?'show':'hide'}}"
+  disabled ="{{((user.wxId == userWxId && user.sign != 1) || (userType == 1  && user.sign != 1))?'':'true'}}" data-text="{{user.userName}}" >{{user.sign == 0?'签到':'已签到'}}</button>
+</view>
+</block>
+<!-- 
+    <block wx:for="{{users}}" wx:key="wxid">
+          <view class='userlist'>
+              <view>
+                  <block wx:for="{{item.goods}}" wx:key="id" wx:for-item="good">
+                      <view class='good-item' bindtap="navigateToGood" data-id="{{good.id}}">
+                          <view class='good-pic'>
+                              <image src="{{good.pic}}" mode="aspectFill"></image>
+                          </view>
+                          <view class='good-desc'>
+                              <view class='good-title'>{{good.title}}</view>
+                              <text class='good-price'>{{good.price}}</text>
+                          </view>
+                      </view>
+                  </block>
+              </view>
+          </view>
+      </block>
+-->
+</view>

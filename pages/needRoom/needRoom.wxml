@@ -1,0 +1,46 @@
+
+<text>选择需要的房间类型及数目</text>
+
+<view style="display:flex;">
+<label>订房电话：</label>
+<input class="input" maxlength="12" value="{{hotelPhone}}" name="hotelPhone" bindinput ="hotelPhoneInput"   placeholder="填写酒店（宾馆）订房电话"></input>
+<button bindtap="queryHotel"> 查询 </button>
+</view>
+<view style="display:flex;">
+<label>名称：</label>
+<text >{{hotelName}}</text>
+</view>
+<view style="display:flex;">
+<label>地址：</label>
+<text >{{hotelDress}}</text>
+</view>
+<view class="section">
+  <view class="section__title"  style="display:flex;">入住日期:
+    <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
+    {{dateStart}}
+  </picker>
+  </view>
+</view>
+<view class="section">
+  <view class="section__title"  style="display:flex;">退房日期:
+    <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
+    {{dateEnd}}
+  </picker>
+  </view>
+</view>
+<button bindtap="queryTypes"> 查询房间数目 </button>
+<view style="display:flex;">
+<label>大床房：</label>
+<input class="input" maxlength="3" value="{{type1Sum}}" name="type1Sum" bindinput ="type1SumInput"   ></input>间
+</view>
+
+<view style="display:flex;">
+<label>标准间：</label>
+<input class="input" maxlength="3" value="{{type2Sum}}" name="type2Sum" bindinput ="type2SumInput"   ></input>间
+</view>
+
+<view style="display:flex;">
+<label>三人间：</label>
+<input class="input" maxlength="3" value="{{type3Sum}}" name="type3Sum" bindinput ="type3SumInput"   ></input>间
+</view>
+<button bindtap="saveTypes"> 保存 </button>

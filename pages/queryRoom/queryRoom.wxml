@@ -1,0 +1,26 @@
+<!--pages/queryRoom/queryRoom.wxml-->
+<view style="display:flex;">酒店（宾馆）名称：
+    {{hotelName}}
+</view>
+<view style="display:flex;">团队：
+    {{teamName}}
+</view>
+<view style="display:flex;">入住日期：
+    {{inDate}}
+</view>
+<view style="display:flex;">退房日期：
+    {{outDate}}
+</view>
+<!--
+<view style="display:flex;">房间类型：
+    {{user.typeName}}
+</view>
+<view style="display:flex;">房间号：{{user.roomNum}}</view>
+-->
+<text>房间成员</text>
+<view >
+<block wx:for="{{hotelUsers}}" wx:key="idx"  wx:for-item="user">
+<view style='display:flex'>房间类型：{{user.typeName}}  房间号：{{user.roomNum}}</view>
+<view style="display:flex;">姓名：{{user.userName}}  性别：{{user.userSex}}</view>
+</block>
+</view>

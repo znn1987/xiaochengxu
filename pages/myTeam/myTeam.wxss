@@ -1,0 +1,9 @@
+/* pages/myTeam/myTeam.wxss */
+
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}

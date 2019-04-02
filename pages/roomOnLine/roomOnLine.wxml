@@ -1,0 +1,17 @@
+
+<view style="display:flex;">房间号码：
+    {{roomNum}}
+</view>
+<view style="display:flex;">房间类型：
+    {{roomTypeName}}
+</view>
+<button  bindtap="deleteRoomUser">重置</button>
+<button  bindtap="saveRoomUser">确定</button>
+
+<view >
+<checkbox-group bindchange="checkboxChange">
+<block wx:for="{{hotelUsers}}"  wx:key="idx" wx:for-item="user">
+<checkbox value='{{user.phone}}' checked='{{flag}}'  >姓名：{{user.userName}} 身份证号：{{user.userCode}}性别：{{user.userSex}} </checkbox>
+</block>
+</checkbox-group>
+</view>

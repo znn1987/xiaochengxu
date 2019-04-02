@@ -1,0 +1,30 @@
+<!--pages/oldTeam/oldTeam.wxml-->
+
+<view  style="display:flex;">
+  <view class="section"  >
+    <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
+    {{dateStart}}
+  </picker>
+  </view>
+  <view style="padding:35rpx 2rpx;"  >至</view>
+  <view class="section">
+    <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
+    {{dateEnd}}
+  </picker>
+  </view>
+  <button class="queryBtn" bindtap="queryOldTeam" style="background-image:url(../images/query.png);" >  </button>
+</view>
+
+<view class=" {{userType == 1 ?'show':'hide'}}" >
+带队总数：{{teamSum}}队   ----    队员总数：{{userSum}}人
+</view>
+
+<block wx:for="{{teams}}" wx:key="idx" wx:for-item="team" wx:for-index="idx">
+<view >
+  {{team.tourTeamDate}}至{{team.tourTeamLoseDate}}:
+</view>
+<view style='display: flex;justify-content: center;'>
+  {{team.tourTeamName}}
+</view>
+</block>
+

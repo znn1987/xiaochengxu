@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container" style="display:flex;">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      
+    </block>
+  </view>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+</view>
+<view style="display:flex;">
+<button bindtap="addUserInfo"> 完善个人信息 </button>
+    <button class=" {{userType == 2?'show':'hide'}}" bindtap="hotelInfo"> 宾馆信息管理 </button>
+</view>

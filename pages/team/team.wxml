@@ -1,0 +1,14 @@
+<!--pages/team/team.wxml-->
+<view style='float:right;padding:30rpx'>{{time}}</view>
+<view style='padding:30rpx'>{{address}}</view>
+<view style='padding:30rpx'>天气：{{weather.weather.data}}</view>
+<view style='padding:30rpx'>温度：{{weather.temperature.data}}°</view>
+<view style='padding:30rpx'>湿度：{{weather.humidity.data}}</view>
+<view style='padding:30rpx'>风向：{{weather.winddirection.data}}</view>
+<view style='padding:30rpx'>风力：{{weather.windpower.data}}</view>
+
+<view style="display:flex;padding:30rpx"> 
+<button bindtap='addTeam'> 创建队伍 </button> 
+<button bindtap='myTeam'> 我的队伍 </button>
+<button bindtap='oldTeam'> 历史队伍 </button>
+</view>

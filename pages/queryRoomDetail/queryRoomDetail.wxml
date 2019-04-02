@@ -1,0 +1,11 @@
+<!--pages/queryRoomDetail/queryRoomDetail.wxml-->
+
+<view>
+<block wx:for="{{users}}" wx:key="idx" wx:for-item="user">
+
+<button  bindtap="roomOnLine">{{user.teamName}}--
+    {{user.tourName}}--{{user.travel}}--{{user.inDate}}--{{user.outDate}}--{{user.typeName}}--{{user.roomNum}}--{{user.userName}}--{{user.userCode}}--{{user.userSex}}
+</button>
+</block>
+</view>
+

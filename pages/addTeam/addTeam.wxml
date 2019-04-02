@@ -1,0 +1,34 @@
+<!--pages/addTeam/addTeam.wxml-->
+
+<view class="itemView"  style="display:flex;">
+    <label>团队名称：</label>
+    <input class="input" name="teamName" placeholder="请输入团队名称" value='{{teamName}}'
+    bindinput ="teamNameInput"/>
+  </view>
+<view class="section">
+  <view class="section__title"  style="display:flex;">队伍创建日期:
+    <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
+    {{dateStart}}
+  </picker>
+  </view>
+</view>
+<view class="section">
+  <view class="section__title"  style="display:flex;">队伍结束日期:
+    <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
+    {{dateEnd}}
+  </picker>
+  </view>
+</view>
+<view> 
+<button bindtap="creatBtn"> 创建队伍 </button> 
+<button bindtap="userBtn"> 队员 </button>
+<button bindtap="erBtn"> 生成二维码 </button>
+
+</view>
+<view>
+<image  wx:if="{{captchaImage}}" src="{{captchaImage}}"></image>
+
+</view>
+
+
+

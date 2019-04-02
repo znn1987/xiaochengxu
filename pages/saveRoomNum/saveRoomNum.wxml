@@ -1,0 +1,31 @@
+<!--pages/saveRoomNum/saveRoomNum.wxml-->
+<view style="display:flex;">
+<label>订房队伍：</label>
+<text>{{teamName}}</text>
+</view>
+<view style="display:flex;">
+<label>队伍负责人：</label>
+<text>{{userCodeName}}</text>
+</view>
+<view style="display:flex;">
+<label>所属旅行社：</label>
+<text>{{travel}}</text>
+</view>
+<view style="display:flex;">
+<label>房间类型：</label>
+<text>{{roomTypeName}}</text>
+</view>
+<view style="display:flex;">
+<label>房间号码：</label>
+<input class="input" maxlength="200" value="{{roomNum}}" name="roomNum" bindinput ="roomNumInput"   placeholder="多个房间请用逗号,隔开"></input>
+</view>
+
+<view style="display:flex;">
+<button bindtap="cancel">取消</button>
+<button bindtap="saveRooms">保存</button>
+</view>
+
+
+
+
+

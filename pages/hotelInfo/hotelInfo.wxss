@@ -1,0 +1,14 @@
+/* pages/hotelInfo/hotelInfo.wxss */
+
+.section{
+   background:#CABBC7;
+   margin:20rpx;
+   padding:20rpx;
+   width: 30%
+}
+
+.queryBtn{
+width:90rpx;
+height:90rpx;
+margin:20rpx 2rpx;
+}

@@ -1,0 +1,35 @@
+<!--pages/room/room.wxml-->
+
+<view style="display:flex;">团队总人数：
+    {{allUser}}人
+</view>
+<view style="display:flex;">团队住宿人数：
+    {{hotelUser}}人
+</view>
+<view style="display:flex;">未完成分房人数：
+    {{overUser}}人
+</view>
+<button bindtap="queryNeedRoom">查询房间数</button>
+<button bindtap="needRoom">填写酒店（宾馆）及房间数</button>
+<view  style="display:flex;">
+  <view class="section"  >
+    <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
+    {{dateStart}}
+  </picker>
+  </view>
+  <view style="padding:35rpx 2rpx;"  >至</view>
+  <view class="section"  style="display:flex;">
+    <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
+    {{dateEnd}}
+  </picker>
+  </view>
+  <button class='queryBtn' style="background-image:url(../images/query.png);" bindtap="queryRoomNum">  </button>
+</view>
+<view>
+<block wx:for="{{rooms}}" wx:key="idx" wx:for-item="room">
+
+<button data-text='{{room.hotelPhone}},{{room.roomType}},{{room.typeName}},{{room.num}}' bindtap="roomOnLine">{{room.hotelName}}：
+    {{room.typeName}}--{{room.num}}
+</button>
+</block>
+</view>

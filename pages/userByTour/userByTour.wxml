@@ -1,0 +1,25 @@
+<!--pages/userByTour/userByTour.wxml
+<text>pages/userByTour/userByTour.wxml</text>
+-->
+
+<view style="display:flex;">
+<label>队员总人数：</label>
+<text>{{sumNum}}人</text>
+
+
+<button bindtap="addUserBtn">添加队员</button>
+</view>
+<block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
+<view style='display: flex;justify-content: right;'>
+
+  {{user.userName}}
+  <button bindtap="updateUserBtn" data-text="{{user.userCode}}" >修改</button>
+  <button bindtap="delUserBtn" data-text="{{user.userCode}}" >删除</button>
+</view>
+<!-- 
+<view style='display: flex;justify-content: center;'>
+  {{team.tourTeamName}}
+</view>
+-->
+
+</block>

@@ -1,0 +1,12 @@
+/* pages/addUserInfo/addUserInfo.wxss */
+
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}
+.input{
+  width: 70%
+}

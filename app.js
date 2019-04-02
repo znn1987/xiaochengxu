@@ -1,4 +1,5 @@
 //app.js
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -10,6 +11,7 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        code : res.code
       }
     })
     // 获取用户信息
@@ -34,6 +36,11 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    url:"http://localhost:8080",
+    userInfo: null,
+    userWxId: null,
+    userType: null,
+    userState: null,
+    teamCode: null
   }
 })

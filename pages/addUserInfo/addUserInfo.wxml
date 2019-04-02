@@ -1,0 +1,60 @@
+<!--pages/addUserInfo/addUserInfo.wxml-->
+<text>完善个人信息</text><view>
+
+<text>*请填写真实电话避免其他功能查询不到信息</text>
+</view>
+<view class=" {{userType == 1 && userCheckState == 0?'show':'hide'}}">
+未审核
+</view>
+<view class=" {{userType == 1 && userCheckState == 1?'show':'hide'}}">
+审核通过
+</view>
+<view style="display:flex;">
+<label>用户类别：</label>
+<radio-group class="radio-group" bindchange="radioTypeChange">
+<label class="userTypeRadio" >
+   <radio value="0" checked="{{userType == 0 ? true : ''}}">游客</radio>
+   <radio value="1" checked="{{userType == 1 ? true : ''}}">导游</radio>
+   <radio value="2" checked="{{userType == 2 ? true : ''}}">宾馆</radio>
+</label>
+</radio-group>
+
+</view>
+<view style="display:flex;">
+<label>姓名：</label>
+<input class="input" maxlength="8" value="{{userCodeName}}" name="userName" bindinput ="userNameInput"   placeholder="导游用户必填"></input>
+</view>
+
+<view style="display:flex;">
+<label>性别：</label>
+<radio-group class="radio-group" bindchange="radioSexChange">
+<label class="userSexRadio" >
+   <radio   value="0" checked="{{userSex == 0 ? true : ''}}">女</radio>
+   <radio   value="1" checked="{{userSex == 1 ? true : ''}}">男</radio>
+</label>
+</radio-group>
+</view>
+
+<view style="display:flex;">
+<label>身份证号码：</label>
+<input class="input" maxlength="18" value="{{userCode}}" name="userCode" bindinput ="userCodeInput" placeholder="导游用户必填"></input>
+</view>
+
+<view style="display:flex;">
+<label>电话号码：</label>
+<input class="input" maxlength="12" value="{{userPhone}}"  name="userphone" bindinput ="userPhoneInput" placeholder="宾馆用户必填(填写订房电话座机要填区号)"></input>
+</view>
+
+<view style="display:flex;">
+<label>所属旅行社：</label>
+<input class="input" maxlength="25" value="{{tourTravel}}" name="tourTravel" bindinput ="tourTravelInput" placeholder="导游用户必填"></input>
+</view>
+
+<view style="display:flex;">
+<label>导游证号：</label>
+<input class="input" maxlength="18" value="{{tourCode}}" name="tourCode" bindinput ="tourCodeInput" placeholder="导游用户必填"></input>
+</view>
+<view style="display:flex;">
+<button bindtap="cancel">取消</button>
+<button bindtap="saveUserInfo">保存</button>
+</view>
