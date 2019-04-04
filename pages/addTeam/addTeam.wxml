@@ -19,15 +19,16 @@
   </picker>
   </view>
 </view>
-<view> 
+<view style="display:flex;padding:30rpx"> 
 <button bindtap="creatBtn"> 创建队伍 </button> 
-<button bindtap="userBtn"> 队员 </button>
+<button bindtap="userBtn"> 查看队员 </button>
+<!-- 
 <button bindtap="erBtn"> 生成二维码 </button>
 
 </view>
 <view>
 <image  wx:if="{{captchaImage}}" src="{{captchaImage}}"></image>
-
+-->
 </view>
 
 

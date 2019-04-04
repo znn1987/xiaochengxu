@@ -9,7 +9,7 @@
 <view class=" {{userType == 1 && userCheckState == 1?'show':'hide'}}">
 审核通过
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>用户类别：</label>
 <radio-group class="radio-group" bindchange="radioTypeChange">
 <label class="userTypeRadio" >
@@ -20,12 +20,12 @@
 </radio-group>
 
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>姓名：</label>
 <input class="input" maxlength="8" value="{{userCodeName}}" name="userName" bindinput ="userNameInput"   placeholder="导游用户必填"></input>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>性别：</label>
 <radio-group class="radio-group" bindchange="radioSexChange">
 <label class="userSexRadio" >
@@ -35,22 +35,22 @@
 </radio-group>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>身份证号码：</label>
 <input class="input" maxlength="18" value="{{userCode}}" name="userCode" bindinput ="userCodeInput" placeholder="导游用户必填"></input>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>电话号码：</label>
 <input class="input" maxlength="12" value="{{userPhone}}"  name="userphone" bindinput ="userPhoneInput" placeholder="宾馆用户必填(填写订房电话座机要填区号)"></input>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>所属旅行社：</label>
 <input class="input" maxlength="25" value="{{tourTravel}}" name="tourTravel" bindinput ="tourTravelInput" placeholder="导游用户必填"></input>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>导游证号：</label>
 <input class="input" maxlength="18" value="{{tourCode}}" name="tourCode" bindinput ="tourCodeInput" placeholder="导游用户必填"></input>
 </view>

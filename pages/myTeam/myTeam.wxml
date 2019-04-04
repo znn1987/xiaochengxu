@@ -1,6 +1,6 @@
 <!--pages/myTeam/myTeam.wxml-->
 <text>完善个人信息后可查询队伍成员</text>
-<view class="itemView" style="display:flex;">团队名称：
+<view class="itemView" style="display:flex;padding:30rpx">团队名称：
     <text class="input" name="teamName" placeholder=""
     bindinput ="teamNameInput"/>{{teamName}}
 </view>
@@ -9,16 +9,17 @@
 <button bindtap="queryRoom"> 房间查看 </button>
 <button bindtap="sign"> 签到/点名 </button>
 </view>
-<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" >
-团队总人数：{{allUser}}人   ----    已签到人数（不含队长）：{{signUser}}人 
+<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
+<label>团队总人数：</label>{{allUser}}人  
 </view>
-<view>
+<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
+<label>已签到人数（不含队长）：</label>{{signUser}}人
+</view>
+
 <block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
-<view style='display: flex;justify-content: right;' >
-
-  {{user.userName}}---{{user.typeName}}
-
-  <button bindtap="signUserBtn" type="{{user.sign == 0?'primary':''}}" class="{{user.type != 1?'show':'hide'}}"
+<view style='display: flex;justify-content: right;align-items:center;padding:16rpx' >
+  <text space="emsp">{{idx+1}}.姓名：{{user.userName}} 队内职务：{{user.typeName}}</text>
+  <button bindtap="signUserBtn" style='' type="{{user.sign == 0?'primary':''}}" class="{{user.type != 1?'show':'hide'}}"
   disabled ="{{((user.wxId == userWxId && user.sign != 1) || (userType == 1  && user.sign != 1))?'':'true'}}" data-text="{{user.userName}}" >{{user.sign == 0?'签到':'已签到'}}</button>
 </view>
 </block>
@@ -41,4 +42,4 @@
           </view>
       </block>
 -->
-</view>
+

@@ -2,7 +2,7 @@
 <text>pages/userByTour/userByTour.wxml</text>
 -->
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx; align-items: center;justify-content: center;">
 <label>队员总人数：</label>
 <text>{{sumNum}}人</text>
 
@@ -10,8 +10,8 @@
 <button bindtap="addUserBtn">添加队员</button>
 </view>
 <block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
-<view style='display: flex;justify-content: right;'>
-
+<view style='display: flex;align-items: center;justify-content: center;padding:30rpx'>
+  {{idx+1}}.
   {{user.userName}}
   <button bindtap="updateUserBtn" data-text="{{user.userCode}}" >修改</button>
   <button bindtap="delUserBtn" data-text="{{user.userCode}}" >删除</button>

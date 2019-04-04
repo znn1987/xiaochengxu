@@ -8,5 +8,5 @@
   display: block;
 }
 .input{
-  width: 70%
+  width: 60%
 }

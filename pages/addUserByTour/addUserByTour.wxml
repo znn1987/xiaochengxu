@@ -3,12 +3,12 @@
 <text>添加队员</text>
 
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>姓名：</label>
 <input class="input" maxlength="8" value="{{userCodeName}}" name="userName" bindinput ="userNameInput"></input>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>性别：</label>
 <radio-group class="radio-group" bindchange="radioSexChange">
 <label class="userSexRadio" >
@@ -17,21 +17,21 @@
 </label>
 </radio-group>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>年龄：</label>
 <input class="input" maxlength="3" value="{{userAge}}" name="userAge" bindinput ="userAgeInput"></input>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>身份证号码：</label>
 <input class="input" maxlength="18" value="{{userCode}}" name="userCode" bindinput ="userCodeInput"></input>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>手机号码：</label>
 <input class="input" maxlength="11" value="{{userPhone}}"  name="userphone" bindinput ="userPhoneInput"></input>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>队员角色：</label>
 <radio-group class="radio-group" bindchange="radioTypeChange">
 <label class="userTypeRadio" >
@@ -42,7 +42,7 @@
 </radio-group>
 </view>
 
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <label>是否住宿：</label>
 <radio-group class="radio-group" bindchange="radioIsHotelChange">
 <label class="isHotelRadio" >
@@ -62,7 +62,7 @@
 </radio-group>
 </view>
 -->
-<view style="display:flex;">
+<view style="display:flex;padding:30rpx">
 <button bindtap="cancel">取消</button>
 <button bindtap="saveUserInfo">保存</button>
 </view>

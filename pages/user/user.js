@@ -21,7 +21,7 @@ Page({
     })
   },
   onLoad: function () {
-    var count = 1 
+    var count = 0 
     if (app.globalData.userInfo) {
       this.setData({
         userType: app.globalData.userType,

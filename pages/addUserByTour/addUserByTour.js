@@ -128,6 +128,7 @@ Page({
           'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
+          console.log(res)
           that.setData({
             userCodeName: res.data.userName,
             userCode: res.data.userCode,
