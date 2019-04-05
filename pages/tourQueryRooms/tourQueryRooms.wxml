@@ -5,13 +5,13 @@
     {{dateStart}}
   </picker>
   </view>
-  至
+  <view style="padding:35rpx 2rpx;"  >至</view>
   <view class="section"  style="display:flex;">
     <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
     {{dateEnd}}
   </picker>
   </view>
-<button bindtap="queryTypes"> 查询房间数目 </button>
+<button class="queryBtn" bindtap="queryTypes" style="background-image:url(../images/query.png);"></button>
 </view>
 <block wx:for="{{datas}}" wx:key="idx" wx:for-item="data" wx:for-index="idx">
 <view >

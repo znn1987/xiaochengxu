@@ -15,13 +15,13 @@
   <button class="queryBtn" bindtap="queryOldTeam" style="background-image:url(../images/query.png);" >  </button>
 </view>
 
-<view class=" {{userType == 1 ?'show':'hide'}}" >
+<view style='padding:18rpx' class=" {{userType == 1 ?'show':'hide'}}" >
 带队总数：{{teamSum}}队   ----    队员总数：{{userSum}}人
 </view>
 
 <block wx:for="{{teams}}" wx:key="idx" wx:for-item="team" wx:for-index="idx">
-<view >
-  {{team.tourTeamDate}}至{{team.tourTeamLoseDate}}:
+<view style='padding:18rpx'>
+  {{idx+1}}. {{team.tourTeamDate}}至{{team.tourTeamLoseDate}}:
 </view>
 <view style='display: flex;justify-content: center;'>
   {{team.tourTeamName}}

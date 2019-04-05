@@ -71,11 +71,11 @@ Page({
   },
   signUserBtn: function (e) {
     var that = this
-    var userName = e.currentTarget.dataset.text
+    var userPhone = e.currentTarget.dataset.text
     wx.request({
       url: app.globalData.url + '/userByTour/updateUserSign',
       data: {
-        userName: userName,
+        userPhone: userPhone,
         teamCode: app.globalData.teamCode
       },
       method: 'post',
