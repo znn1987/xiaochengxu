@@ -19,8 +19,8 @@
 -->
 <text style="padding:30rpx">房间成员</text>
 <view >
-<block wx:for="{{hotelUsers}}" wx:key="idx"  wx:for-item="user">
-<view style='display:flex;padding:8rpx 16rpx'>{{idx}}.房间类型：{{user.typeName}}  房间号：{{user.roomNum}}</view>
+<block wx:for="{{hotelUsers}}" wx:key="idx" wx:for-index="idx" wx:for-item="user">
+<view style='display:flex;padding:8rpx 16rpx'>{{idx+1}}.房间类型：{{user.typeName}}  房间号：{{user.roomNum}}</view>
 <view style="display:flex;padding:8rpx 16rpx">姓名：{{user.userName}}  性别：{{user.userSex}}</view>
 </block>
 </view>

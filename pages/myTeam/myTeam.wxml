@@ -20,7 +20,7 @@
 <view style='display: flex;justify-content: right;align-items:center;padding:16rpx' >
   <text space="emsp">{{idx+1}}.姓名：{{user.userName}} 队内职务：{{user.typeName}}</text>
   <button bindtap="signUserBtn" style='' type="{{user.sign == 0?'warn':'primary'}}" class="{{user.type != 1?'show':'hide'}}"
-  disabled ="{{((user.wxId == userWxId && user.sign != 1) || (userType == 1  && user.sign != 1))?'':'true'}}" data-text="{{user.phone}}" >{{user.sign == 0?'签到':'已签到'}}</button>
+  disabled ="{{((user.wxId == userWxId && user.sign != 1) || (userType == 1  && user.sign != 1))?'':'true'}}" data-text="{{user.wxId}},{{user.userName}}" >{{user.sign == 1?'已签到':'签到'}}</button>
 </view>
 </block>
 <!-- 

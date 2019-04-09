@@ -1,5 +1,6 @@
 {
   "pages":[
+    
     "pages/authorization/authorization",
     "pages/team/team",
     "pages/addTeam/addTeam",
@@ -17,7 +18,8 @@
     "pages/hotelInfo/hotelInfo",
     "pages/saveRoomNum/saveRoomNum",
     "pages/queryRoomDetail/queryRoomDetail",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"dark",

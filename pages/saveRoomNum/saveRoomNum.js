@@ -36,7 +36,7 @@ Page({
     var list = this.data.rooms.split(",");
     if (list.length != this.data.roomSum){
       wx.showToast({
-        title: '房间数与需要数目不同，请检查是否输入有误！！',
+        title: '房间数与需要数目不同，请检查是否输入有误(英文逗号)！！',
         icon: 'none',
         duration: 2000,
         mask: false
@@ -47,7 +47,7 @@ Page({
     for (i; i < list.length;i++){
       if(list[i]==""){
         wx.showToast({
-          title: '房间号不能为空，请检查是否输入有误！！',
+          title: '房间号不能为空，请检查是否输入有误(英文逗号)！！',
           icon: 'none',
           duration: 2000,
           mask: false

@@ -3,6 +3,7 @@
 const app = getApp()
 Page({
   data: {
+    code: '',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -20,7 +21,59 @@ Page({
       url: '../hotelInfo/hotelInfo'
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    var that = this
+    wx.login({
+      success: res => {
+        console.log(options)
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if (options.scene) {
+          let scene = decodeURIComponent(options.scene);
+          //发起网络请求
+          wx.request({
+            url: app.globalData.url + '/user/add',
+            header: {
+              "content-type": "application/x-www-form-urlencoded"
+            },
+            method: "POST",
+            data: {
+              encryptedData: null,
+              iv: null,
+              code: res.code
+            },
+            success: function (result) {
+              console.log(result)
+              app.globalData.userWxId = result.data.openid,
+                app.globalData.userType = result.data.userType,
+                app.globalData.userState = result.data.userState,
+                app.globalData.hasUserInfo = true,
+                //发起网络请求
+                wx.request({
+                  url: app.globalData.url + '/teamUser/addTeamUserByEr',
+                  header: {
+                    "content-type": "application/x-www-form-urlencoded"
+                  },
+                  method: "POST",
+                  data: {
+                    userWxId: result.data.openid,
+                    teamCode: scene
+                  },
+                  success: function (result) {
+
+                  }
+                })
+            }
+          })
+
+          //授权成功后，跳转进入小程序首页
+          wx.switchTab({
+            url: '/pages/user/user'
+          })
+        }
+      }
+    })
+    
+
     var count = 0 
     if (app.globalData.userInfo) {
       this.setData({
@@ -97,7 +150,7 @@ Page({
   onShow: function () {
     if (this.data.count != 0) {
       var that = this
-      that.onLoad()
+      that.onLoad("show")
     }
     this.setData({
       count: 1

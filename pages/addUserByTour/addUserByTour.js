@@ -74,9 +74,16 @@ Page({
 
   //保存个人信息
   saveUserInfo: function (e) {
+    var url=''
+    if (this.data.type==2){
+      url = '/teamUser/update'
+    }else{
+      url = '/userByTour/add'
+    }
     wx.request({
-      url: app.globalData.url + '/userByTour/add',
+      url: app.globalData.url + url,
       data: {
+        userWxId: this.data.userWxId,
         userName: this.data.userCodeName,
         userSex: this.data.userSex,
         userAge: this.data.userAge,
@@ -117,8 +124,14 @@ Page({
       return
     }
     if (options.userCode != undefined){
+      var url = "";
+      if (options.type == 2){
+        url = '/teamUser/queryTeamUserByCode'
+      }else{
+        url = '/userByTour/queryUserByCode'
+      }
       wx.request({
-        url: app.globalData.url + '/userByTour/queryUserByCode',
+        url: app.globalData.url + url,
         data: {
           userCode: options.userCode,
           teamCode: app.globalData.teamCode
@@ -130,6 +143,7 @@ Page({
         success: function (res) {
           console.log(res)
           that.setData({
+            userWxId: res.data.userWxId,
             userCodeName: res.data.userName,
             userCode: res.data.userCode,
             userPhone: res.data.phone,
@@ -137,7 +151,7 @@ Page({
             userSex: res.data.userSex,
             userType: res.data.userType,
             isHotel: res.data.isHotel,
-            isTourSign: res.data.isTourSign
+            type: options.type
           })
 
         },

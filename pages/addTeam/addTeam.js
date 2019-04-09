@@ -121,11 +121,16 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        
+        console.log(res.data);
           that.setData({
-            captchaImage: "../images/erweima/" + res.data.tourTeamCode + "img.png"
+            //captchaImage: "../images/erweima/" + res.data.tourTeamCode + "img.png"
+            token: res.data.token,
+            teamCode: res.data.teamCode,
+            imgurl: res.data.re
           })
        
+
+
       },
       fail: function (res) {
         console.log("--------fail--------");

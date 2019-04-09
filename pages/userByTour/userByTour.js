@@ -27,9 +27,17 @@ Page({
   },
   //由队长修改游客信息按钮跳转
   updateUserBtn: function (e) {
-    var userCode = e.currentTarget.dataset.text
+    var text = e.currentTarget.dataset.text
+    var list = text.split(",");
+    var i = 0;
+    var type = "";
+    var userCode = "";
+    for (i; i < list.length; i++) {
+      type = list[0];
+      userCode = list[1];
+    }
     wx.navigateTo({
-      url: '../addUserByTour/addUserByTour?userCode=' + userCode,
+      url: '../addUserByTour/addUserByTour?userCode=' + userCode + '&type=' + type,
     })
   }, 
   //由队长删除游客信息按钮跳转
@@ -83,6 +91,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res);
         that.setData({
           sumNum:res.data.length,
           users:res.data

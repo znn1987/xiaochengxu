@@ -6,17 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phone:[]
+    wxId:[]
   },
   // 获取多选框list中选中的值和对应的id
   checkboxChange: function (e) {
     var that = this
-    var phone=[];
+    var wxId=[];
     for (var i = 0; i < e.detail.value.length; i++) {
-      phone[i] = e.detail.value[i];
+      wxId[i] = e.detail.value[i];
     }
     that.setData({
-      phone: phone
+      wxId: wxId
     })
   },
   //在线分房--保存房间用户
@@ -40,7 +40,7 @@ Page({
         inDate: this.data.inDate,
         outDate: this.data.outDate,
         teamCode: app.globalData.teamCode,
-        userPhone: this.data.phone
+        userWxId: this.data.wxId
       },
       method: 'post',
       header: {

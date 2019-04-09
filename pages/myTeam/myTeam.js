@@ -71,11 +71,25 @@ Page({
   },
   signUserBtn: function (e) {
     var that = this
-    var userPhone = e.currentTarget.dataset.text
+    var text = e.currentTarget.dataset.text
+    var list = text.split(",");
+    var i = 0;
+    var wxId = "";
+    var name = "";
+    for (i; i < list.length; i++) {
+      wxId = list[0];
+      name = list[1];
+    }
+    var url = ''
+    if (wxId == name) {
+      url = '/userByTour/updateUserSign'
+    } else {
+      url = '/teamUser/updateUserSign'
+    }
     wx.request({
-      url: app.globalData.url + '/userByTour/updateUserSign',
+      url: app.globalData.url + url,
       data: {
-        userPhone: userPhone,
+        wxId: wxId,
         teamCode: app.globalData.teamCode
       },
       method: 'post',
@@ -178,6 +192,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res)
        that.setData({
          users:res.data
        })
