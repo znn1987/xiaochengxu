@@ -29,6 +29,7 @@ Page({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (options.scene) {
           let scene = decodeURIComponent(options.scene);
+         
           //发起网络请求
           wx.request({
             url: app.globalData.url + '/user/add',
@@ -59,13 +60,20 @@ Page({
                     teamCode: scene
                   },
                   success: function (result) {
-
+                    if (!result.success){
+                      wx.showToast({
+                        title: result.msg,
+                        icon: 'none',
+                        duration: 2000,
+                        mask: false
+                      })
+                    }
                   }
                 })
             }
           })
 
-          //授权成功后，跳转进入小程序首页
+          //扫码成功后，跳转进入小程序授权页面
           wx.switchTab({
             url: '/pages/user/user'
           })

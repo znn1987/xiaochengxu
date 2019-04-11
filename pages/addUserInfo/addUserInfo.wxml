@@ -43,9 +43,18 @@
 <input class="input" maxlength="18" value="{{userCode}}" name="userCode" bindinput ="userCodeInput" placeholder="导游用户必填"></input>
 </view>
 
+<view class=" {{userType != 2?'show':'hide'}}">
 <view style="display:flex;padding:30rpx">
 <label>电话号码：</label>
-<input class="input" maxlength="12" value="{{userPhone}}"  name="userphone" bindinput ="userPhoneInput" placeholder="必填(宾馆用户可填写订房电话)"></input>
+<input class="input" maxlength="11" value="{{userPhone}}"  name="userphone" bindinput ="userPhoneInput" placeholder="必填"></input>
+</view>
+</view>
+
+<view class=" {{userType == 2?'show':'hide'}}">
+<view style="display:flex;padding:30rpx">
+<label>宾馆固话：</label>
+<input class="input" maxlength="12" value="{{userPhone}}"  name="userphone" bindinput ="userPhoneInput" placeholder="必填"></input>
+</view>
 </view>
 
 <view class=" {{userType == 1?'show':'hide'}}"  >
@@ -58,6 +67,18 @@
 <view style="display:flex;padding:30rpx">
 <label>导游证号：</label>
 <input class="input" maxlength="18" value="{{tourCode}}" name="tourCode" bindinput ="tourCodeInput" placeholder="导游用户必填"></input>
+</view>
+</view>
+<view class=" {{userType == 2?'show':'hide'}}">
+<view style="display:flex;padding:30rpx">
+<label>宾馆名称：</label>
+<input class="input" maxlength="18" value="{{hotelName}}" name="hotelName" bindinput ="hotelNameInput" placeholder="宾馆用户必填"></input>
+</view>
+</view>
+<view class=" {{userType == 2?'show':'hide'}}">
+<view style="display:flex;padding:30rpx">
+<label>地址：</label>
+<input class="input" maxlength="50" value="{{hotelDress}}" name="hotelDress" bindinput ="hotelDressInput" ></input>
 </view>
 </view>
 <view style="display:flex;">

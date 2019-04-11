@@ -56,6 +56,20 @@ Page({
       tourCode: e.detail.value
     })
   },
+  //获取用户输入的宾馆名称
+  hotelNameInput: function (e) {
+    var that = this
+    that.setData({
+      hotelName: e.detail.value
+    })
+  },
+  //获取用户输入的宾馆地址
+  hotelDressInput: function (e) {
+    var that = this
+    that.setData({
+      hotelDress: e.detail.value
+    })
+  },
   //返回
   cancel: function () {
     wx.navigateBack({
@@ -82,9 +96,9 @@ Page({
       })
       return
     }
-    if (this.data.userType == 2 && (this.data.userPhone == "")) {
+    if (this.data.userType == 2 && ((this.data.userPhone == "") || (this.data.hotelName == ""))) {
       wx.showToast({
-        title: '宾馆用户：电话号码（订房电话）必填',
+        title: '宾馆用户：电话号码（订房电话）、宾馆名称必填',
         icon: 'none',
         duration: 2000,
         mask: false
@@ -102,7 +116,9 @@ Page({
         userPhone: this.data.userPhone,
         tourTravel: this.data.tourTravel,
         tourCode: this.data.tourCode,
-        userCheckState: this.data.userCheckState
+        userCheckState: this.data.userCheckState,
+        hotelName: this.data.hotelName,
+        hotelDress: this.data.hotelDress
       },
       method: 'post',
       header: {
@@ -150,6 +166,39 @@ Page({
             userCheckState: res.data.userCheckState
           })
         }
+        if (res.data.userType == 2){
+          //查询酒店信息
+          wx.request({
+            url: app.globalData.url + '/sysHotel/queryHotel',
+            data: {
+              wxId: app.globalData.userWxId
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+              // if (res.data.sysHotelName == undefined) {
+              //   that.setData({
+              //     hotelPhone: res.data.sysHotelPhone,
+              //     hotelName: res.data.sysHotelPhone,
+              //     hotelDress: res.data.sysHotelPhone
+              //   })
+              //   that.saveHotel('')
+              // } else {
+              that.setData({
+                hotelName: res.data.sysHotelName,
+                hotelDress: res.data.sysHotelDress
+              })
+              // }
+
+            },
+            fail: function (res) {
+              console.log("--------fail--------");
+            }
+          })
+        }
+        
       },
       fail: function (res) {
         console.log("--------fail--------");

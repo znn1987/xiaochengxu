@@ -11,7 +11,9 @@
 <label>地址：</label>
 <input class="input" maxlength="24" value="{{hotelDress}}" name="hotelDress" bindinput ="hotelDressInput"   ></input>
 </view>
+<!--
 <button bindtap="saveHotel"> 保存 </button>
+-->
 <view  style="display:flex;">
   <view class="section"  >
     <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">

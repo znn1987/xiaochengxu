@@ -150,6 +150,7 @@ Page({
               'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
+              console.log(res)
               if (res.data.allUser == null) {
                 that.setData({
                   allUser: 0

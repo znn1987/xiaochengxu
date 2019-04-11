@@ -143,11 +143,20 @@ Page({
           'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
-          that.setData({
-            hotelPhone: res.data.sysHotelPhone,
-            hotelName: res.data.sysHotelName,
-            hotelDress: res.data.sysHotelDress
-          })
+          // if (res.data.sysHotelName == undefined) {
+          //   that.setData({
+          //     hotelPhone: res.data.sysHotelPhone,
+          //     hotelName: res.data.sysHotelPhone,
+          //     hotelDress: res.data.sysHotelPhone
+          //   })
+          //   that.saveHotel('')
+          // } else {
+            that.setData({
+              hotelPhone: res.data.sysHotelPhone,
+              hotelName: res.data.sysHotelName,
+              hotelDress: res.data.sysHotelDress
+            })
+          // }
 
         },
         fail: function (res) {

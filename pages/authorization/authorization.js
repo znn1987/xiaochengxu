@@ -80,6 +80,7 @@ Page({
   },
   //获取用户信息接口
   queryUsreInfo: function (e) {
+    console.log(app)
     wx.request({
       url: app.globalData.url +'/user/add',
       header: {

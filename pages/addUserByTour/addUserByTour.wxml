@@ -31,17 +31,18 @@
 <input class="input" maxlength="11" value="{{userPhone}}"  name="userphone" bindinput ="userPhoneInput"></input>
 </view>
 
+<view class=" {{userType == 1?'hide':'show'}}">
 <view style="display:flex;padding:30rpx">
 <label>队员角色：</label>
 <radio-group class="radio-group" bindchange="radioTypeChange">
 <label class="userTypeRadio" >
    <radio   value="2" checked="{{userType == 2 ? true : ''}}">全陪</radio>
-   <radio   value="3" checked="{{userType == 3 ? true : ''}}">司机</radio>
+   <radio   value="3" checked="{{userType == 3 ? true : ''}}">驾驶员</radio>
    <radio   value="4" checked="{{userType == 4 ? true : ''}}">游客</radio>
 </label>
 </radio-group>
 </view>
-
+</view>
 <view style="display:flex;padding:30rpx">
 <label>是否住宿：</label>
 <radio-group class="radio-group" bindchange="radioIsHotelChange">

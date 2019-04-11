@@ -13,7 +13,7 @@
 <view style='display: flex;align-items: center;justify-content: center;padding:30rpx'>
   {{idx+1}}.
   {{user.userName}}
-  <button bindtap="updateUserBtn" data-text="{{user.sysUserId}},{{user.userCode}}" >修改</button>
+  <button bindtap="updateUserBtn" data-text="{{user.sysUserId}},{{user.userCode}}" >查看/修改</button>
   <button class=" {{user.sysUserId == 1?'show':'hide'}}" bindtap="delUserBtn" data-text="{{user.userCode}}" >删除</button>
 </view>
 <!-- 
