@@ -1,0 +1,8 @@
+/* pages/hotelPass/hotelPass.wxss */
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}

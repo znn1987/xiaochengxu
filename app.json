@@ -16,6 +16,7 @@
     "pages/userByTour/userByTour",
     "pages/addUserByTour/addUserByTour",
     "pages/hotelInfo/hotelInfo",
+    "pages/hotelPass/hotelPass",
     "pages/saveRoomNum/saveRoomNum",
     "pages/queryRoomDetail/queryRoomDetail",
     "pages/logs/logs",

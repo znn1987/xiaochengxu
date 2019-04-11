@@ -18,7 +18,7 @@ Page({
   //完善宾馆信息
   hotelInfo: function () {
     wx.navigateTo({
-      url: '../hotelInfo/hotelInfo'
+      url: '../hotelPass/hotelPass'
     })
   },
   onLoad: function (options) {
@@ -60,9 +60,9 @@ Page({
                     teamCode: scene
                   },
                   success: function (result) {
-                    if (!result.success){
+                    if (!result.data.success){
                       wx.showToast({
-                        title: result.msg,
+                        title: result.data.msg,
                         icon: 'none',
                         duration: 2000,
                         mask: false
