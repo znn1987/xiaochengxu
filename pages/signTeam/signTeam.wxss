@@ -1,0 +1,16 @@
+/* pages/signTeam/signTeam.wxss */
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}
+
+.btn2 {
+  width: 90%;
+  margin-top: 20rpx;
+  background-color: rgb(73, 227, 196);
+  color: white;
+  
+}

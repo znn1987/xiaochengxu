@@ -11,10 +11,12 @@
     {{dateEnd}}
   </picker>
   </view>
-<button class="queryBtn" bindtap="queryTypes" style="background-image:url(../images/query.png);"></button>
+<button class="queryBtn" bindtap="queryTypes" style="background-image:url(../images/query.jpg);"></button>
 </view>
 <block wx:for="{{datas}}" wx:key="idx" wx:for-item="data" wx:for-index="idx">
-<view >
-  {{data.hotelPhone}}--{{data.hotelName}}--{{data.typeName}}--{{data.sum}}间
+<view style="padding:5rpx 30rpx;">
+<text decode="{{true}}">
+  {{idx+1}}.&nbsp;&nbsp;{{data.hotelName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.sum}}间
+</text>
 </view>
 </block>

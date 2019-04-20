@@ -1,11 +1,22 @@
 <!--pages/queryRoomDetail/queryRoomDetail.wxml-->
 
-<view>
-<block wx:for="{{users}}" wx:key="idx" wx:for-item="user">
-
-<button  bindtap="roomOnLine">{{user.teamName}}--
-    {{user.tourName}}--{{user.travel}}--{{user.inDate}}--{{user.outDate}}--{{user.typeName}}--{{user.roomNum}}--{{user.userName}}--{{user.userCode}}--{{user.userSex}}
-</button>
-</block>
+<view style="padding:15rpx 30rpx">
+  <block wx:for="{{users}}" wx:key="idx" wx:for-item="user">
+    <view style='background-color: rgb(208, 230, 114);'>
+    入住日期：{{user.inDate}}--{{user.outDate}}
+      入住团队：{{user.teamName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;导游：{{user.tourName}}
+      入住房间：{{user.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房间号：{{user.roomNum}}
+    姓名：{{user.userName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性别：{{user.userSex}}
+    身份证号：{{user.userCode}}
+    </view>
+    <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+  <!--
+    <view style="padding:15rpx 30rpx">
+    <text decode="{{true}}">
+    {{user.teamName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.tourName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{       {user.travel}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.inDate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{            {user.outDate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{         {user.roomNum}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.userName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{         {user.userCode}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.userSex}}
+    </text>
+    </view>
+    -->
+  </block>
 </view>
 

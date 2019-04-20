@@ -1,0 +1,5 @@
+<!--pages/erTeam/erTeam.wxml-->
+<view style="padding:15rpx 80rpx;align-items: center;justify-content: center;">
+<image style="width:250px;height:250px;" src="data:image/jpeg;base64,{{imgurl}}"></image>
+
+</view>

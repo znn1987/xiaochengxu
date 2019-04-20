@@ -33,6 +33,10 @@ Page({
             inDate: res.data[0].inDate,
             outDate: res.data[0].outDate
           })
+        }else{
+          that.setData({
+            hotelName: '暂无房间信息！'
+          })
         }
       },
       fail: function (res) {

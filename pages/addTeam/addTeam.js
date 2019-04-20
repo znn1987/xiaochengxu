@@ -76,13 +76,9 @@ Page({
           teamName: res.data.teamName
           
         })
-        wx.showToast({
-          title: '队伍创建成功！请添加队员吧！！！',
-          icon: 'none',
-          duration: 2000,
-          mask: false
+        wx.navigateBack({
+
         })
-        return
       },
       fail: function (res) {
         console.log("--------fail--------");
@@ -137,7 +133,7 @@ Page({
       }
     })
   },
- 
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -170,6 +166,36 @@ Page({
               dateStart: res.data[0].tourTeamDate,
               dateEnd: res.data[0].tourTeamLoseDate
             })
+
+          //发起网络请求判断当前队伍是否为自己创建的队伍
+          wx.request({
+            url: app.globalData.url + '/team/queryIsMyTeam',
+            header: {
+              "content-type": "application/x-www-form-urlencoded"
+            },
+            method: "POST",
+            data: {
+              userWxId: app.globalData.userWxId,
+              teamCode: res.data[0].tourTeamCode
+            },
+            success: function (result) {
+              console.log(result)
+              if (result.data.success) {
+                
+              } else {
+                wx.navigateBack({
+
+                })
+                wx.showToast({
+                  title: '当前已加入他人队伍，不允许再次创建队伍！！！！！',
+                  icon: 'none',
+                  duration: 2000,
+                  mask: false
+                })
+                
+              }
+            }
+          })
         }
         
       },

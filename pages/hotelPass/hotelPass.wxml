@@ -1,35 +1,35 @@
 <!--pages/hotelPass/hotelPass.wxml-->
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>订房电话：</label>
 <text>{{hotelPhone}}</text>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>名称：</label>
 <input class="input" value="{{hotelName}}" name="hotelName"></input>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>地址：</label>
 <input class="input" value="{{hotelDress}}" name="hotelDress" ></input>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>密码：</label>
 <input class="input" maxlength="9"  bindinput ="hotelPassInput" value="{{hotelPass}}" name="hotelPass" ></input>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <button bindtap="checkHotel"> 验证 </button>
 <button bindtap="updatePass"> 修改密码 </button>
 </view>
 
 <view class=" {{type == 1?'show':'hide'}}">
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>旧密码：</label>
 <input class="input" maxlength="9"  bindinput ="hotelOldPassInput" value="{{hotelOldPass}}" ></input>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>新密码：</label>
 <input class="input" maxlength="9"  bindinput ="hotelNewPassInput" value="{{hotelNewPass}}"  ></input>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>新密码：</label>
 <input class="input" maxlength="9"  bindinput ="hotelNewPassAginInput" value="{{hotelNewPassAgin}}"  ></input>
 </view>

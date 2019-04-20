@@ -1,14 +1,54 @@
 <!--pages/myTeam/myTeam.wxml-->
+<!--
 <text>完善个人信息后可查询队伍成员</text>
 <view class="itemView" style="display:flex;padding:30rpx">团队名称：
     <text class="input" name="teamName" placeholder=""
     bindinput ="teamNameInput"/>{{teamName}}
 </view>
+
 <view style="display:flex;padding:30rpx"> 
 <button bindtap="room"> 在线分房 </button> 
 <button bindtap="queryRoom"> 房间查看 </button>
 <button bindtap="sign"> 签到/点名 </button>
 </view>
+
+<view style="display:flex;padding:30rpx"> 
+<button bindtap="assemble"> 定点集合 </button>
+</view>
+-->
+<view  style="display:flex;padding:15rpx 30rpx;">
+<image style="height: 70rpx;width: 70rpx;" src ='../images/front2.jpg'></image>
+<text  decode="{{true}}" bindtap="userBtn"> 队员管理 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{allUser}}{{code == 1 ?'':'人'}} </text> 
+<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="userBtn" src ='../images/right.png'></image>
+</view>
+
+<view style='background-color: rgb(238, 226, 226);height: 5px;'>
+</view>
+<view  style="display:flex;padding:5rpx 30rpx;">
+<image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
+<text  decode="{{true}}" bindtap="room"> 在线分房 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </text> 
+<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="room" src ='../images/right.png'></image>
+</view>
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+<view  style="display:flex;padding:5rpx 30rpx;">
+<image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
+<text  decode="{{true}}" bindtap="queryRoom"> 我的房间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </text> 
+<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="room" src ='../images/right.png'></image>
+</view>
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+<view  style="display:flex;padding:5rpx 30rpx;">
+<image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
+<text  decode="{{true}}" bindtap="signTeam"> 签到点名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </text> 
+<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="signTeam" src ='../images/right.png'></image>
+</view>
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+<view  style="display:flex;padding:5rpx 30rpx;">
+<image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
+<text  decode="{{true}}" bindtap="assemble"> 定点集合 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </text> 
+<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="assemble" src ='../images/right.png'></image>
+</view>
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+<!--
 <view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
 <label>团队总人数：</label>{{allUser}}人  
 </view>
@@ -23,6 +63,7 @@
   disabled ="{{((user.wxId == userWxId && user.sign != 1) || (userType == 1  && user.sign != 1))?'':'true'}}" data-text="{{user.wxId}},{{user.userName}}" >{{user.sign == 1?'已签到':'签到'}}</button>
 </view>
 </block>
+-->
 <!-- 
     <block wx:for="{{users}}" wx:key="wxid">
           <view class='userlist'>

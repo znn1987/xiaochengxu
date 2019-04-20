@@ -4,3 +4,21 @@
    margin:20rpx;
    padding:20rpx
 }
+.btn1 {
+  width: 90%;
+  margin-top: 20rpx;
+  background-color: rgb(248, 248, 239);
+  color:  rgb(26, 188, 156);
+  
+}
+
+.btn2 {
+  width: 90%;
+  margin-top: 20rpx;
+  background-color: rgb(26, 188, 156);
+  color: white;
+  
+}
+.btn1::after{
+  border:1px solid rgb(26, 188, 156);
+}

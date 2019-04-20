@@ -36,7 +36,7 @@ App({
     })
   },
   globalData: {
-    url:"http://localhost:8080",
+    url:"https://www.taleyo.cn/yoleyo",
     userInfo: null,
     userWxId: null,
     userType: null,

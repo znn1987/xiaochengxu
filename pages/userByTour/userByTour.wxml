@@ -1,20 +1,36 @@
 <!--pages/userByTour/userByTour.wxml
 <text>pages/userByTour/userByTour.wxml</text>
 -->
-
-<view style="display:flex;padding:30rpx; align-items: center;justify-content: center;">
+<view style="padding:15rpx"> 
+<button class = 'btn2' bindtap='addUserBtn'>添加队员</button> 
+</view>
+<view style="padding:5rpx"> 
+<button class = 'btn2' bindtap="erBtn">生成二维码</button> 
+</view>
+<view style="display:flex;padding:30rpx;">
 <label>队员总人数：</label>
 <text>{{sumNum}}人</text>
 
-
-<button bindtap="addUserBtn">添加队员</button>
 </view>
 <block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
-<view style='display: flex;align-items: center;justify-content: center;padding:30rpx'>
-  {{idx+1}}.
-  {{user.userName}}
-  <button bindtap="updateUserBtn" data-text="{{user.sysUserId}},{{user.userCode}}" >查看/修改</button>
-  <button class=" {{user.sysUserId == 1?'show':'hide'}}" bindtap="delUserBtn" data-text="{{user.userCode}}" >删除</button>
+<view style='display: flex;width:100%;justify-content:space-between;'>
+
+<view style='align-items: center;padding:30rpx;'>
+  <view>
+
+  <text style='align-items: center;' data-text="{{user.phone}}" bindtap="calling">{{idx+1}}.{{user.userName}}</text>
+    <image style='align-items: center;' src="/pages/images/tel.png" class="img-plus-style1" data-text="{{user.phone}}" bindtap="calling"></image>
+  </view>
+  </view>
+  
+  <view style='display: flex;padding:30rpx'>
+  <view class=" {{user.sysUserId == 1?'show':'hide'}}" style='padding:1rpx 10rpx'>
+  <button class = 'btn4'  bindtap="delUserBtn" data-text="{{user.userCode}}" >删除</button>
+  </view>
+  <view>
+  <button style='display: inline;float: right;' class = 'btn3' bindtap="updateUserBtn" data-text="{{user.sysUserId}},{{user.userCode}}">查看/修改</button>
+  </view>
+  </view>
 </view>
 <!-- 
 <view style='display: flex;justify-content: center;'>

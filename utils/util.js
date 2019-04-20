@@ -11,6 +11,17 @@ const formatTime = date => {
   //+ ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+const formatMin = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+
+  return [hour, minute].map(formatNumber).join(':')
+}
+
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -35,6 +46,7 @@ function getAddress() {
 
 
 module.exports = {
+  formatMin: formatMin,
   formatTime: formatTime,
   getAddress: getAddress
 }

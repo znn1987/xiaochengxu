@@ -5,6 +5,11 @@
     "pages/team/team",
     "pages/addTeam/addTeam",
     "pages/myTeam/myTeam",
+    "pages/erTeam/erTeam",
+    "pages/signTeam/signTeam",
+    "pages/assembleAndInfo/assembleAndInfo",
+    "pages/assembleSet/assembleSet",
+    "pages/assemble/assemble",
     "pages/oldTeam/oldTeam",
     "pages/room/room",
     "pages/queryRoom/queryRoom",
@@ -24,7 +29,7 @@
   ],
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#00DB00",
+    "navigationBarBackgroundColor": "#E4E4E4",
     "navigationBarTitleText": "优乐游平台",
     "navigationBarTextStyle":"black"
   },
@@ -34,9 +39,9 @@
     }
   },
   "tabBar": {
-    "color": "#ffffff", 
-    "selectedColor": "#gggggg", 
-    "backgroundColor": "#00DB00", 
+    "color": "#AEAEAE", 
+    "selectedColor": "#59CC59", 
+    "backgroundColor": "#E4E4E4", 
     "borderStyle": "black", 
     "position": "bottom",
     "list": [

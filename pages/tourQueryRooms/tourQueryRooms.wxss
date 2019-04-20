@@ -1,6 +1,6 @@
 /* pages/roomAssign/roomAssign.wxss */
 .section{
-   background:#CABBC7;
+   background:rgb(73, 227, 196);
    margin:20rpx;
    padding:20rpx;
    width: 30%

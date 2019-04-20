@@ -1,37 +1,39 @@
 <!--pages/addTeam/addTeam.wxml-->
 
-<view class="itemView"  style="display:flex;">
+<view class="itemView"  style="display:flex;padding:10rpx 30rpx">
     <label>团队名称：</label>
     <input class="input" name="teamName" placeholder="请输入团队名称" value='{{teamName}}'
     bindinput ="teamNameInput"/>
   </view>
-<view class="section">
-  <view class="section__title"  style="display:flex;">队伍创建日期:
+<view class="">
+  <view class="" style="display:flex;padding:10rpx 30rpx">开始时间：
     <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
     {{dateStart}}
   </picker>
+  <image style="float:right;height: 70rpx;width: 70rpx;"  src ='../images/right.png'></image>
   </view>
 </view>
-<view class="section">
-  <view class="section__title"  style="display:flex;">队伍结束日期:
+<view class="">
+  <view class=""  style="display:flex;padding:10rpx 30rpx">结束时间：
     <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
     {{dateEnd}}
   </picker>
+  <image style="float:right;height: 70rpx;width: 70rpx;"  src ='../images/right.png'></image>
   </view>
 </view>
-<view style="display:flex;padding:30rpx"> 
-<button bindtap="creatBtn"> 创建队伍 </button> 
+<view > 
+<button class="btn2" bindtap="creatBtn"> 保存队伍 </button> 
+
+
+</view>
+<!--
 <button bindtap="userBtn"> 查看队员 </button>
  
 <button bindtap="erBtn"> 生成二维码 </button>
-
-</view>
 <view>
 <image style="width:380px;height:380px;" src="data:image/jpeg;base64,{{imgurl}}"></image>
-<!--
-<image  wx:if="{{captchaImage}}" src="{{captchaImage}}"></image>
--->
-</view>
 
+</view>
+-->
 
 

@@ -1,0 +1,37 @@
+<!--pages/assembleSet/assembleSet.wxml-->
+ <button class='btn2' bindtap="queryAssemble"> 查询 </button>
+<view  style="display:flex;padding:15rpx 30rpx;">
+<label>集合日期：</label>
+  <view class="section"  >
+    <picker mode="date" value="{{assembleDate}}" start="2019-01-01" end="2099-12-31" bindchange="bindAssembleDateChange">
+    {{assembleDate}}
+  </picker>
+  </view>
+</view>
+<view  style="display:flex;padding:15rpx 30rpx;">
+<label>集合时间：</label>
+  <view class="section"  >
+    <picker mode="time" value="{{assembleTime}}" start="00:00" end="23:59" bindchange="bindAssembleTimeChange">
+    {{assembleTime}}
+  </picker>
+  </view>
+ 
+</view>
+<view class="tui-map-search" style="display:flex;padding:15rpx 30rpx;" bindtap="getAddress">
+   <icon size='20' type='search' class='tui-map-search-icon'></icon> 
+  <input class="tui-map-input" bindinput ="assembleDressInput" placeholder="点击设置集合地点" focus="{{focusStatus}}" value='{{assembleDress}}'></input>
+</view>
+<view style='display:flex;padding:15rpx 30rpx'>
+<button class='btn2' bindtap="deleteAssemble"> 删除定点集合信息 </button>
+<button class='btn2' bindtap="saveAssemble"> 保存定点集合信息 </button>
+</view>
+
+<view class="" style='display:flex;padding:10rpx 30rpx'>
+  <form bindsubmit="uploadImg">
+    <label bindtap="photoBtn">点击选择图片</label>
+    <image mode="widthFix" src="{{photos}}"></image>
+    <button class='btn2' form-type="submit">提交</button>
+  </form>
+</view>
+
+

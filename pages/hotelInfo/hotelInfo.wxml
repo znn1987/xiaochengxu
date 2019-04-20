@@ -1,16 +1,18 @@
 <!--pages/hotelInfo/hotelInfo.wxml-->
-<view style="display:flex;">
+<!--
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>订房电话：</label>
 <text>{{hotelPhone}}</text>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>名称：</label>
 <input class="input" maxlength="9" value="{{hotelName}}" name="hotelName" bindinput ="hotelNameInput"   placeholder="酒店（宾馆）名称"></input>
 </view>
-<view style="display:flex;">
+<view style="display:flex;padding:15rpx 30rpx;">
 <label>地址：</label>
 <input class="input" maxlength="24" value="{{hotelDress}}" name="hotelDress" bindinput ="hotelDressInput"   ></input>
 </view>
+-->
 <!--
 <button bindtap="saveHotel"> 保存 </button>
 -->
@@ -26,13 +28,14 @@
     {{dateEnd}}
   </picker>
   </view>
-  <button bindtap="queryTeam" class="queryBtn" style="background-image:url(../images/query.png);">  </button>
+  <button bindtap="queryTeam" class="queryBtn" style="background-image:url(../images/query.jpg);">  </button>
 </view>
 <button bindtap='queryRoomDetail' data-text='{{data.inDate}},{{data.outDate}}' >查询详细</button>
 <block wx:for="{{datas}}" wx:key="idx" wx:for-item="data" wx:for-index="idx">
-<view>入住时间：{{data.inDate}}--退房时间：{{data.outDate}}</view>
-<view >
-  {{data.teamName}}--{{data.typeName}}--{{data.sum}}间
+<view style="padding:15rpx 30rpx">入住时间：{{data.inDate}}--{{data.outDate}}
+  <text decode="{{true}}">
+  {{data.teamName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.sum}}间
+  </text>
   <button bindtap='saveRoomNum' data-text='{{data.teamCode}},{{data.type}},{{data.sum}},{{data.inDate}},{{data.outDate}}' >分配房间</button>
 </view>
 </block>

@@ -1,0 +1,39 @@
+<!--pages/assembleAndInfo/assembleAndInfo.wxml-->
+<view style="display:flex;padding:10rpx 100rpx;">
+<label>集合时间：</label>
+<text>{{assembleTime}}</text>
+</view>
+<view style="display:flex;padding:10rpx 30rpx;align-items: center;justify-content: left;">
+<image mode="widthFix" style="height: 70rpx;width: 70rpx;" src="data:image/jpeg;base64,{{photos}}"></image>
+<label>集合地点：</label>
+<text bindtap="GPS">{{assembleDress}}</text>
+<!--
+</view>
+<button class= 'btn2' bindtap="GPS">导航</button>
+<view>
+<label>附近照片：</label>
+
+<text>{{assemblePhoto}}</text>-->
+</view>
+
+<view class=" {{userType == 1 ?'show':'hide'}}" style="display:flex;">
+<button class= 'btn2' bindtap="setAssemble">设置定点集合</button>
+<!--
+<button  bindtap="sign"> 签到/点名 </button>
+-->
+</view>
+
+<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
+<label>团队总人数：</label>{{allUser}}人  
+</view>
+<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
+<label>未签到人数（不含队长）：</label>{{assembleUser}}人
+</view>
+
+<block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
+<view class="{{userType == 1 || user.wxId == userWxId?'show':'hide'}}" style='display: flex;justify-content:space-between;align-items:center;padding:16rpx' >
+  <text decode="{{true}}" style='display: flex;width:70%;'>{{idx+1}}.姓名：{{(userType == 1 || user.wxId == userWxId)?user.userName:user.typeName}}</text>
+  <button bindtap="signUserBtn" style='' type="{{user.assemble == 0?'warn':'primary'}}" class="{{user.type != 1?'show':'hide'}}"
+  disabled ="{{((user.wxId == userWxId && user.assemble != 1) || (userType == 1  && user.assemble != 1))?'':'true'}}" data-text="{{user.wxId}},{{user.userName}}" >{{user.assemble == 1?'已签到':'签到'}}</button>
+</view>
+</block>

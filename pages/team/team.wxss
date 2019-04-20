@@ -1,1 +1,46 @@
 /* pages/team/team.wxss */
+
+.btn1 {
+  width: 90%;
+  margin-top: 20rpx;
+  background-color: rgb(248, 248, 239);
+  color:  rgb(26, 188, 156);
+  
+}
+
+.btn2 {
+  width: 90%;
+  margin-top: 20rpx;
+  background-color: rgb(26, 188, 156);
+  color: black;
+  
+}
+.btn1::after{
+  border:1px solid rgb(26, 188, 156);
+}
+
+
+.downbtn {
+  height: 60rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: white;
+  color: black;
+  
+}
+.nodownbtn {
+  height: 60rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: white;
+  color: rgb(247, 1, 1);
+  
+}
+
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}

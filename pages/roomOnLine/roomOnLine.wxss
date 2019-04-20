@@ -1,1 +1,8 @@
 /* pages/roomOnLine/roomOnLine.wxss */
+.btn2 {
+  width: 90%;
+  margin-top: 20rpx;
+  background-color: rgb(208, 230, 114);
+  color: white;
+  
+}

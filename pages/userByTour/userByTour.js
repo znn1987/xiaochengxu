@@ -8,7 +8,23 @@ Page({
   data: {
     count: 0
   },
- 
+ //打电话
+  calling: function (e) {
+    console.log(e)
+    var phone = e.currentTarget.dataset.text
+    if (phone == null || phone == 'undefined' || phone == '') {
+      wx.showToast({
+        title: '请先填写队员联系电话！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
   //由队长添加游客信息按钮跳转
   addUserBtn: function (e) {
     if (app.globalData.teamCode == null) {
@@ -25,6 +41,41 @@ Page({
     })
 
   },
+  //生成二维码：后台生成，返回前台
+  erBtn: function (e) {
+    console.log("生成二维码");
+    var that = this
+    wx.request({
+      url: app.globalData.url + '/team/er',
+      data: {
+        userWxId: app.globalData.userWxId,
+        startDate: this.data.dateStart,
+        endDate: this.data.dateEnd
+      },
+      method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          //captchaImage: "../images/erweima/" + res.data.tourTeamCode + "img.png"
+          token: res.data.token,
+          teamCode: res.data.teamCode,
+          imgurl: res.data.re
+        })
+        wx.navigateTo({
+          url: '../erTeam/erTeam?er=' + res.data.re,
+        })
+
+
+      },
+      fail: function (res) {
+        console.log("--------fail--------");
+      }
+    })
+  },
+
   //由队长修改游客信息按钮跳转
   updateUserBtn: function (e) {
     var text = e.currentTarget.dataset.text
@@ -61,7 +112,7 @@ Page({
               'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
-              that.onLoad()
+              that.onLoad(that.data.optdata)
             },
             fail: function (res) {
               console.log("--------fail--------");
@@ -79,29 +130,67 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this
+    console.log(options)
+    if (options.start) {
+      that.setData({
+        optdata: options,
+        startDate: options.start,
+        endDate: options.end
+      })
+    }
+    //发起网络请求判断当前队伍是否为自己创建的队伍
     wx.request({
-      url: app.globalData.url + '/userByTour/queryUser',
+      url: app.globalData.url + '/team/queryIsMyTeam',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
       data: {
+        userWxId: app.globalData.userWxId,
         teamCode: app.globalData.teamCode
       },
-      method: 'post',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        console.log(res);
-        that.setData({
-          sumNum:res.data.length,
-          users:res.data
-        })
+      success: function (result) {
+        console.log('result')
+        console.log(result)
+        if (result.data.success) {
+          wx.request({
+            url: app.globalData.url + '/userByTour/queryUser',
+            data: {
+              teamCode: app.globalData.teamCode
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+              console.log(res);
+              that.setData({
+                sumNum: res.data.length,
+                users: res.data
+              })
 
-      },
-      fail: function (res) {
-        console.log("--------fail--------");
+            },
+            fail: function (res) {
+              console.log("--------fail--------");
+            }
+          })
+        } else {
+          wx.navigateBack({
+
+          })
+          wx.showToast({
+            title: '当前已加入他人队伍，不允许管理队员！！！！！',
+            icon: 'none',
+            duration: 2000,
+            mask: false
+          })
+
+        }
       }
     })
+   
   },
 
   /**

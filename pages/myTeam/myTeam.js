@@ -14,7 +14,34 @@ Page({
     dateEnd: '',
     count: 0
   },
- 
+  //由队长添加游客信息按钮跳转
+  userBtn: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍再添加队员！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
+    if (app.globalData.userType == 1 && app.globalData.userState == 1) {
+      wx.navigateTo({
+        url: '../userByTour/userByTour?start=' + this.data.start + '&end=' + this.data.end,
+      })
+
+    } else {
+      wx.showToast({
+        title: '此次版本只允许注册导游创建队伍！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+
+    }
+   
+  },
   //在线分房--房间号码查看
   room: function (e) {
     if (app.globalData.userType == 1 && app.globalData.userState == 1) {
@@ -36,6 +63,12 @@ Page({
   queryRoom: function (e) {
     wx.navigateTo({
       url: '../queryRoom/queryRoom',
+    })
+  },
+  //房间查看
+  signTeam: function (e) {
+    wx.navigateTo({
+      url: '../signTeam/signTeam',
     })
   },
   //设置签到、点名
@@ -68,6 +101,13 @@ Page({
       return
       
     }
+  },
+  //定点集合
+  assemble: function (e) {
+   
+      wx.navigateTo({
+        url: '../assembleAndInfo/assembleAndInfo',
+      })
   },
   signUserBtn: function (e) {
     var that = this
@@ -137,7 +177,9 @@ Page({
           code = res.data[0].tourTeamCode
           app.globalData.teamCode = res.data[0].tourTeamCode
           that.setData({
-            teamName: res.data[0].tourTeamName
+            teamName: res.data[0].tourTeamName,
+            start: res.data[0].tourTeamDate,
+            end: res.data[0].tourTeamLoseDate
           })
 
           wx.request({
