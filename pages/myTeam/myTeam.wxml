@@ -16,36 +16,69 @@
 <button bindtap="assemble"> 定点集合 </button>
 </view>
 -->
-<view  style="display:flex;padding:15rpx 30rpx;">
-<image style="height: 70rpx;width: 70rpx;" src ='../images/front2.jpg'></image>
-<text  decode="{{true}}" bindtap="userBtn"> 队员管理 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{allUser}}{{code == 1 ?'':'人'}} </text> 
-<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="userBtn" src ='../images/right.png'></image>
+<view class="{{userType == 1?'show':'hide'}}">
+<view  style="display:flex;padding:15rpx 30rpx;align-items: center;justify-content:space-between;">
+<view style="display:flex;">
+<image style="height: 60rpx;width: 60rpx;" src ='../images/front2.jpg'></image>
+<view style="padding:1rpx 20rpx;">
+<text  bindtap="userBtn"> 队员管理 </text> 
+</view>
+</view>
+<view style="display:flex;">
+<text bindtap="userBtn">{{allUser}}{{code == 1 ?'':'人'}}</text> 
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="userBtn" src ='../images/right.png'></image>
+</view>
 </view>
 
 <view style='background-color: rgb(238, 226, 226);height: 5px;'>
 </view>
-<view  style="display:flex;padding:5rpx 30rpx;">
-<image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
-<text  decode="{{true}}" bindtap="room"> 在线分房 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </text> 
-<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="room" src ='../images/right.png'></image>
+<view  style="display:flex;padding:15rpx 30rpx;justify-content:space-between;">
+<view style="display:flex;">
+<image style="height: 60rpx;width: 60rpx;" src ='../images/front1.jpg'></image>
+<view style="padding:1rpx 20rpx;">
+<text  decode="{{true}}" bindtap="room"> 在线分房 </text>
+</view>
+</view>
+<view>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="room" src ='../images/right.png'></image>
+</view>
+</view>
 </view>
 <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
-<view  style="display:flex;padding:5rpx 30rpx;">
-<image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
-<text  decode="{{true}}" bindtap="queryRoom"> 我的房间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </text> 
-<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="room" src ='../images/right.png'></image>
+<view  style="display:flex;padding:15rpx 30rpx;justify-content:space-between;">
+<view style="display:flex;">
+<image style="height: 60rpx;width: 60rpx;" src ='../images/front1.jpg'></image>
+<view style="padding:1rpx 20rpx;">
+<text  decode="{{true}}" bindtap="queryRoom">我的房间</text> 
+</view>
+</view>
+<view>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="room" src ='../images/right.png'></image>
+</view>
 </view>
 <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
-<view  style="display:flex;padding:5rpx 30rpx;">
-<image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
-<text  decode="{{true}}" bindtap="signTeam"> 签到点名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </text> 
-<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="signTeam" src ='../images/right.png'></image>
+<view  style="display:flex;padding:15rpx 30rpx;justify-content:space-between;">
+<view style="display:flex;">
+<image style="height: 60rpx;width: 60rpx;" src ='../images/front3.jpg'></image>
+<view style="padding:1rpx 20rpx;">
+<text decode="{{true}}" bindtap="signTeam"> 签到点名</text> 
+</view>
+</view>
+<view>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="room" src ='../images/right.png'></image>
+</view>
 </view>
 <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
-<view  style="display:flex;padding:5rpx 30rpx;">
-<image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
-<text  decode="{{true}}" bindtap="assemble"> 定点集合 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </text> 
-<image style="float:right;height: 70rpx;width: 70rpx;" bindtap="assemble" src ='../images/right.png'></image>
+<view  style="display:flex;padding:15rpx 30rpx;justify-content:space-between;">
+<view style="display:flex;">
+<image style="height: 60rpx;width: 60rpx;" src ='../images/front3.jpg'></image>
+<view style="padding:1rpx 20rpx;">
+<text  decode="{{true}}" bindtap="assemble"> 定点集合 </text> 
+</view>
+</view>
+<view>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="room" src ='../images/right.png'></image>
+</view>
 </view>
 <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
 <!--

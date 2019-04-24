@@ -1,12 +1,15 @@
 <!--pages/assembleAndInfo/assembleAndInfo.wxml-->
 <view style="display:flex;padding:10rpx 100rpx;">
-<label>集合时间：</label>
+<label>时间：</label>
 <text>{{assembleTime}}</text>
 </view>
 <view style="display:flex;padding:10rpx 30rpx;align-items: center;justify-content: left;">
-<image mode="widthFix" style="height: 70rpx;width: 70rpx;" src="data:image/jpeg;base64,{{photos}}"></image>
-<label>集合地点：</label>
+<image mode="widthFix" bindtap='previewImage' style="height: 70rpx;width: 70rpx;" src="data:image/jpeg;base64,{{photos}}"></image>
+<view style="singleLine:true;text-overflow:ellipsis;" >
+<label>地点：</label>
+</view>
 <text bindtap="GPS">{{assembleDress}}</text>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindchange="bindDateEndChange" src ='../images/right.png'></image>
 <!--
 </view>
 <button class= 'btn2' bindtap="GPS">导航</button>
@@ -15,25 +18,31 @@
 
 <text>{{assemblePhoto}}</text>-->
 </view>
-
-<view class=" {{userType == 1 ?'show':'hide'}}" style="display:flex;">
+<view class="{{userType == 1?'show':'hide'}}">
+<view style="display:flex;">
 <button class= 'btn2' bindtap="setAssemble">设置定点集合</button>
 <!--
 <button  bindtap="sign"> 签到/点名 </button>
 -->
 </view>
 
-<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
+<view  style="display:flex;padding:2rpx 30rpx " >
 <label>团队总人数：</label>{{allUser}}人  
 </view>
-<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
-<label>未签到人数（不含队长）：</label>{{assembleUser}}人
+<view  style="display:flex;padding:2rpx 30rpx " >
+<label>未签到人数（不含队长）：</label><text bindtap="noAssembleUserBtn">{{assembleUser}}人</text>
 </view>
-
+</view>
 <block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
-<view class="{{userType == 1 || user.wxId == userWxId?'show':'hide'}}" style='display: flex;justify-content:space-between;align-items:center;padding:16rpx' >
-  <text decode="{{true}}" style='display: flex;width:70%;'>{{idx+1}}.姓名：{{(userType == 1 || user.wxId == userWxId)?user.userName:user.typeName}}</text>
+<view class="{{user.type == 1 || userType == 1 || user.wxId == userWxId?'show':'hide'}}">
+<view style='display: flex;justify-content:space-between;align-items:center;padding:16rpx' >
+  <text style='display: flex;width:70%;'>{{userType == 1?idx+1:''}}{{userType == 1?'.':''}}姓名：{{user.userName}}</text>
+  <view class="{{user.type == 1 && userType != 1 ?'show':'hide'}}">
+  <image style='align-items: center;' src="/pages/images/tel.png" class="img-plus-style1" data-text="{{user.phone}}" bindtap="calling"></image>
+  </view>
   <button bindtap="signUserBtn" style='' type="{{user.assemble == 0?'warn':'primary'}}" class="{{user.type != 1?'show':'hide'}}"
   disabled ="{{((user.wxId == userWxId && user.assemble != 1) || (userType == 1  && user.assemble != 1))?'':'true'}}" data-text="{{user.wxId}},{{user.userName}}" >{{user.assemble == 1?'已签到':'签到'}}</button>
 </view>
+</view>
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
 </block>

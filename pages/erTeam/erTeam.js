@@ -1,4 +1,5 @@
 // pages/erTeam/erTeam.js
+const app = getApp();
 Page({
 
   /**
@@ -12,13 +13,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("生成二维码");
     var that = this
-    console.log(options)
-    if (options.er != undefined) {
-      that.setData({
-        imgurl: options.er
-      })
-    }
+    wx.request({
+      url: app.globalData.url + '/team/er',
+      data: {
+        userWxId: app.globalData.userWxId,
+        startDate: options.dateStart,
+        endDate: options.dateEnd
+      },
+      method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          token: res.data.token,
+          teamCode: res.data.teamCode,
+          imgurl: res.data.re
+        })
+      },
+      fail: function (res) {
+        console.log("--------fail--------");
+      }
+    })
   },
 
   /**

@@ -17,34 +17,90 @@ Page({
   },
   //  点击开始日期组件确定事件  
   bindDateStartChange: function (e) {
-    if (e.detail.value < util.formatTime(new Date())) {
+    console.log(app)
+    if (app.globalData.teamCode == null) {
+      console.log('开始日期')
+      if (e.detail.value < util.formatTime(new Date())) {
+        wx.showToast({
+          title: '开始日期不能小于当前日期！！！！',
+          icon: 'none',
+          duration: 2000,
+          mask: false
+        })
+      } else {
+        this.setData({
+          dateStart: e.detail.value
+        })
+      }  
+    }else{
       wx.showToast({
-        title: '开始日期不能小于当前日期！！！！',
+        title: '日期不可更改！！！！',
         icon: 'none',
         duration: 2000,
         mask: false
       })
-    } else {
-      this.setData({
-        dateStart: e.detail.value
-      })
-    }    
+    }  
   },
   //  点击结束日期组件确定事件  
   bindDateEndChange: function (e) {
-    if (e.detail.value < this.data.dateStart){
+    if (app.globalData.teamCode == null) {
+      if (e.detail.value < this.data.dateStart){
+        wx.showToast({
+          title: '结束日期不能小于开始日期！！！！',
+          icon: 'none',
+          duration: 2000,
+          mask: false
+        })
+      }else{
+        this.setData({
+          dateEnd: e.detail.value
+        })
+      }
+    }else{
       wx.showToast({
-        title: '结束日期不能小于开始日期！！！！',
+        title: '日期不可更改！！！！',
         icon: 'none',
         duration: 2000,
         mask: false
       })
-    }else{
-      this.setData({
-        dateEnd: e.detail.value
-      })
     }
-   
+  },
+  //删除团队
+  deleteBtn: function (e) {
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '删除队伍会将关于本队伍的所有信息全部删除，确定要删除队伍吗？',
+      success: function (sm) {
+
+        if (sm.confirm) {
+
+          wx.request({
+            url: app.globalData.url + '/team/del',
+            data: {
+              teamCode: app.globalData.teamCode
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+              
+              wx.navigateBack({
+
+              })
+            },
+            fail: function (res) {
+              console.log("--------fail--------");
+            }
+          })
+
+        } else if (sm.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
   },
   //保存团队创建信息
   creatBtn: function (e) {
@@ -58,32 +114,46 @@ Page({
       return
     }
     var that = this
-    wx.request({
-      url: app.globalData.url+'/team/add',
-      data: {
-        userWxId: app.globalData.userWxId,
-        teamName: this.data.teamName,
-        startDate: this.data.dateStart,
-        endDate: this.data.dateEnd
-      },
-      method: 'post',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        app.globalData.teamCode = res.data.teamCode
-        that.setData({
-          teamName: res.data.teamName
-          
-        })
-        wx.navigateBack({
+    wx.showModal({
+      title: '提示',
+      content: '队伍创建后，日期不可更改，确定要创建吗？',
+      success: function (sm) {
 
-        })
-      },
-      fail: function (res) {
-        console.log("--------fail--------");
+        if (sm.confirm) {
+
+          wx.request({
+            url: app.globalData.url + '/team/add',
+            data: {
+              userWxId: app.globalData.userWxId,
+              teamName: this.data.teamName,
+              startDate: this.data.dateStart,
+              endDate: this.data.dateEnd
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+              app.globalData.teamCode = res.data.teamCode
+              that.setData({
+                teamName: res.data.teamName
+
+              })
+              wx.navigateBack({
+
+              })
+            },
+            fail: function (res) {
+              console.log("--------fail--------");
+            }
+          })
+
+        } else if (sm.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
+    
   },
   //由队长添加游客信息按钮跳转
   userBtn: function (e) {

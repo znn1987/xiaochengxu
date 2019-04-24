@@ -156,17 +156,65 @@ Page({
   },
   //选择照片
   photoBtn: function (e) {
+    
     var _this = this
     wx.chooseImage({
       count: 1, // 最多可以选择的图片张数，默认9
       sizeType: [ 'compressed'], // original 原图，compressed 压缩图，默认二者都有
       sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
-      success: function (res) {
-        // success
-        console.log(res)
-        _this.setData({
-          photos: res.tempFilePaths
+      success: function (photo) {
+        // _this.setData({
+        //   path: photo.tempFilePaths[0]
+        // })
+        wx.getImageInfo({
+          src: photo.tempFilePaths[0],
+          success: function (res) {
+            console.log(res)
+            console.log('344')
+            const ctx = wx.createCanvasContext('myCanvas')//画布
+            //设置canvas尺寸
+            console.log(res.height)
+            console.log(res.width)
+            var towidth = 344;           //按宽度344px的比例压缩
+            var toheight = Math.trunc(344 * res.height / res.width   );  //根据图片比例换算出图片高度
+            console.log(towidth)
+            console.log(toheight)
+            _this.setData({
+              canvas_w: towidth,
+              canvas_h: toheight
+            })
+            ctx.drawImage(photo.tempFilePaths[0], 0, 0, towidth, toheight)
+            // ctx.draw()
+             ctx.draw(false, function () {
+               wx.showToast({
+                 title: '图片加载中……',
+                 icon: 'none',
+                 duration: 10000,
+                 mask: false
+               })
+               setTimeout(function () {
+                  wx.canvasToTempFilePath({
+                    canvasId: 'myCanvas',
+                    fileType: "jpg",
+                    width: res.width,
+                    height: res.height,
+                    destWidth: towidth,
+                    destHeight: toheight,
+                    success: function (res) {
+                      console.log(ctx)
+                      console.log(res.tempFilePath)
+                      _this.setData({
+                      path: res.tempFilePath,
+                      pathType:1
+                      })
+                    }
+                  }, 1000)
+               }, 8000)
+             })
+          }
+          
         })
+        
       },
       fail: function () {
         // fail
@@ -176,39 +224,42 @@ Page({
       }
     })
   },
+  
   /**
   * 上传照片
   */
   uploadImg: function () {
-    console.log("上传照片")
     var that = this
     wx.uploadFile({
       url: app.globalData.url + '/teamAssemble/upload', 
-      filePath: that.data.photos[0],
+      filePath: that.data.path,
       header: { "Content-Type": "multipart/form-data" },
       name: 'file',
       formData: {
         teamCode: app.globalData.teamCode,
         userWxId: app.globalData.userWxId,
-        date: this.data.assembleDate,
-        time: this.data.assembleTime
+        date: that.data.assembleDate,
+        time: that.data.assembleTime
       },
       success: function (res) {
-        if (res.data.msg){
+        var data = JSON.parse(res.data)
+        if (data.success){
+          wx.navigateBack({
+
+          })
+        }else{
           wx.showToast({
-            title: res.data.msg,
+            title: data.msg,
             icon: 'none',
             duration: 2000,
             mask: false
           })
-        }else{
-          wx.navigateBack({
-
-          })
+         
         }
        
       }
     })
+   
   },
 
   //删除
@@ -304,7 +355,8 @@ Page({
     // 再通过setData更改Page()里面的data，动态更新页面的数据
     this.setData({
       assembleDate: date,
-      assembleTime: time
+      assembleTime: time,
+      pathType: 0
     });
     var _this = this;
     wx.getLocation({

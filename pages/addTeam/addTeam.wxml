@@ -6,22 +6,33 @@
     bindinput ="teamNameInput"/>
   </view>
 <view class="">
-  <view class="" style="display:flex;padding:10rpx 30rpx">开始时间：
+  <view class="" style="display:flex;padding:10rpx 30rpx;justify-content:space-between;">
+  <view>
+  开始时间：
+  </view>
+  <view style="display:flex;">
     <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
     {{dateStart}}
   </picker>
-  <image style="float:right;height: 70rpx;width: 70rpx;"  src ='../images/right.png'></image>
+  <image style="float:right;height: 50rpx;width: 50rpx;" bindchange="bindDateStartChange" src ='../images/right.png'></image>
+  </view>
   </view>
 </view>
 <view class="">
-  <view class=""  style="display:flex;padding:10rpx 30rpx">结束时间：
+  <view class=""  style="display:flex;padding:10rpx 30rpx;justify-content:space-between;">
+  <view>
+  结束时间：
+  </view>
+  <view style="display:flex;">
     <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
     {{dateEnd}}
   </picker>
-  <image style="float:right;height: 70rpx;width: 70rpx;"  src ='../images/right.png'></image>
+  <image style="float:right;height: 50rpx;width: 50rpx;" bindchange="bindDateEndChange" src ='../images/right.png'></image>
+  </view>
   </view>
 </view>
-<view > 
+<view style="display:flex;"> 
+<button class="btn1" bindtap="deleteBtn"> 删除队伍 </button>
 <button class="btn2" bindtap="creatBtn"> 保存队伍 </button> 
 
 

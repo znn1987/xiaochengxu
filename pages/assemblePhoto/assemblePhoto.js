@@ -1,4 +1,4 @@
-// pages/queryRoom/queryRoom.js
+// pages/assemblePhoto/assemblePhoto.js
 const app = getApp();
 Page({
 
@@ -13,33 +13,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.photos)
+    wx.showToast({
+      title: '图片加载中……',
+      icon: 'none',
+      duration: 5000,
+      mask: false
+    })
     var that = this
+    that.setData({
+      imageWidth: wx.getSystemInfoSync().windowWidth
+    })
     wx.request({
-      url: app.globalData.url + '/hotelTeamUser/queryRoom',
+      url: app.globalData.url + '/teamAssemble/queryByCode',
       data: {
-        wxId: app.globalData.userWxId
+        teamCode: app.globalData.teamCode,
+        userWxId: app.globalData.userWxId,
+        userType: app.globalData.userTypet
       },
       method: 'post',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        if (res.data.length > 0) {
-          
-          that.setData({
-            hotelUsers: res.data,
-            teamName: res.data[0].teamName,
-            inDate: res.data[0].inDate,
-            outDate: res.data[0].outDate
-          })
-        }else{
-          that.setData({
-            teamName: '暂无房间信息！'
-          })
-        }
-      },
-      fail: function (res) {
-        console.log("--------fail--------");
+            that.setData({
+              photos: res.data.photo
+            })
       }
     })
   },

@@ -22,15 +22,18 @@
   <input class="tui-map-input" bindinput ="assembleDressInput" placeholder="点击设置集合地点" focus="{{focusStatus}}" value='{{assembleDress}}'></input>
 </view>
 <view style='display:flex;padding:15rpx 30rpx'>
-<button class='btn2' bindtap="deleteAssemble"> 删除定点集合信息 </button>
-<button class='btn2' bindtap="saveAssemble"> 保存定点集合信息 </button>
+<button bindtap="deleteAssemble"> 删除 </button>
+<button bindtap="saveAssemble"> 保存 </button>
 </view>
 
 <view class="" style='display:flex;padding:10rpx 30rpx'>
   <form bindsubmit="uploadImg">
     <label bindtap="photoBtn">点击选择图片</label>
+    <canvas style='width:{{canvas_w}}px;height:{{canvas_h}}px'  canvas-id="myCanvas"></canvas>
+    <!--
     <image mode="widthFix" src="{{photos}}"></image>
-    <button class='btn2' form-type="submit">提交</button>
+    -->
+    <button class='btn2' disabled ="{{pathType==1?'':'true'}}"  form-type="submit">提交</button>
   </form>
 </view>
 

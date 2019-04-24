@@ -162,6 +162,13 @@ Page({
       type3: e.detail.value
     })
   },
+  //获取用户输入的套房数量
+  type4SumInput: function (e) {
+    var that = this
+    that.setData({
+      type4: e.detail.value
+    })
+  },
   
   //保存房间数量
     saveTypes: function (e) {
@@ -193,6 +200,7 @@ Page({
           type1: this.data.type1,
           type2: this.data.type2,
           type3: this.data.type3,
+          type4: this.data.type4,
           startDate: this.data.dateStart,
           endDate: this.data.dateEnd
         },

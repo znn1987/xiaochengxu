@@ -27,3 +27,9 @@
 .show {
   display: block;
 }
+
+.img-plus-style1 {  
+  height: 50rpx;  
+  width: 50rpx; 
+  opacity: 0.7
+} 

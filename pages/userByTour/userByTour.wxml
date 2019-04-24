@@ -28,10 +28,11 @@
   <button class = 'btn4'  bindtap="delUserBtn" data-text="{{user.userCode}}" >删除</button>
   </view>
   <view>
-  <button style='display: inline;float: right;' class = 'btn3' bindtap="updateUserBtn" data-text="{{user.sysUserId}},{{user.userCode}}">查看/修改</button>
+  <button style='display: inline;float: right;' class = 'btn3' bindtap="updateUserBtn" data-text="{{user.sysUserId}},{{user.userCode}}">编辑</button>
   </view>
   </view>
 </view>
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
 <!-- 
 <view style='display: flex;justify-content: center;'>
   {{team.tourTeamName}}

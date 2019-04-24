@@ -19,6 +19,8 @@ Page({
     // 查看是否授权
     wx.getSetting({
       success: function (res) {
+        console.log('查看授权')
+        console.log(res)
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function () {
@@ -80,6 +82,7 @@ Page({
   },
   //获取用户信息接口
   queryUsreInfo: function (e) {
+    console.log('查看用户信息')
     console.log(app)
     wx.request({
       url: app.globalData.url +'/user/add',
@@ -93,9 +96,12 @@ Page({
         code: this.data.code
       },
       success: function (result) {
+        console.log('查看用户信息')
+        
         app.globalData.userWxId = result.data.openid,
         app.globalData.userType = result.data.userType,
         app.globalData.userState = result.data.userState
+        console.log(app)
       }
     }) 
   }

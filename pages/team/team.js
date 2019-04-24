@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    teamName: '数据加载中……',
     code: 1,
     address: '',
     count: 0
@@ -80,21 +81,29 @@ Page({
 
     });
     var that = this
+    setTimeout(function () {
+      //要延时执行的代码
+      console.log('3秒延时')
+   
     wx.request({
       url: app.globalData.url + '/team/queryTeam',
       data: {
         userWxId: app.globalData.userWxId,
         teamName: '',
-        startDate: this.data.dateStart,
-        endDate: this.data.dateStart
+        startDate: time,
+        endDate: time
       },
       method: 'post',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log('加载队伍信息')
+        console.log(app)
         console.log(res)
         var code = '';
+
+       
         if (res.data.length > 0) {
           code = res.data[0].tourTeamCode
           app.globalData.teamCode = res.data[0].tourTeamCode
@@ -142,6 +151,7 @@ Page({
 
         }else{
           that.setData({
+            code: 1,
             teamName: '当前没有加入任何队伍！！'
           })
         }
@@ -151,6 +161,7 @@ Page({
         console.log("--------fail--------");
       }
     })
+    }, 3000) 
   },
 
   getLocation: function () {

@@ -1,18 +1,24 @@
 <!--pages/signTeam/signTeam.wxml-->
+<view class="{{userType == 1?'show':'hide'}}">
 <view style=""> 
 <button class = "btn2" bindtap="sign"> 重置点名 </button>
 </view>
-<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
+
+<view class=" {{userType == 1?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
 <label>团队总人数：</label>{{allUser}}人  
 </view>
-<view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
-<label>未签到人数（不含队长）：</label>{{signUser}}人
+<view class=" {{userType == 1?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
+<label>未签到人数（不含队长）：</label><text bindtap="noSignUserBtn">{{signUser}}人</text>
 </view>
-
+</view>
 <block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
-<view class="{{userType == 1 || user.wxId == userWxId?'show':'hide'}}" style='display: flex;align-items:center;padding:16rpx;justify-content:space-between;' >
-  <text decode="{{true}}" style='display: flex;width:70%;'>{{idx+1}}.姓名：{{(userType == 1 || user.wxId == userWxId)?user.userName:user.typeName}}</text>
+<view class="{{userType == 1 || user.wxId == userWxId?'show':'hide'}}">
+<view  style='display: flex;align-items:center;padding:16rpx;justify-content:space-between;' >
+
+  <text style='display: flex;width:70%;'>{{userType == 1?idx+1:''}}{{userType == 1?'.':''}}姓名：{{user.userName}}</text>
   <button bindtap="signUserBtn" style='' type="{{user.sign == 0?'warn':'primary'}}" class="{{user.type != 1?'show':'hide'}}"
   disabled ="{{((user.wxId == userWxId && user.sign != 1) || (userType == 1  && user.sign != 1))?'':'true'}}" data-text="{{user.wxId}},{{user.userName}}" >{{user.sign == 1?'已签到':'签到'}}</button>
 </view>
+</view>
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
 </block>

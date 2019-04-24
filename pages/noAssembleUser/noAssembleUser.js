@@ -1,4 +1,4 @@
-// pages/queryRoom/queryRoom.js
+// pages/noAssembleUser/noAssembleUser.js
 const app = getApp();
 Page({
 
@@ -8,35 +8,44 @@ Page({
   data: {
 
   },
-
+  //打电话
+  calling: function (e) {
+    console.log(e)
+    var phone = e.currentTarget.dataset.text
+    if (phone == null || phone == 'undefined' || phone == '') {
+      wx.showToast({
+        title: '请先填写队员联系电话！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: app.globalData.url + '/hotelTeamUser/queryRoom',
+      url: app.globalData.url + '/teamUserAssemble/queryTeamUser',
       data: {
-        wxId: app.globalData.userWxId
+        userWxId: app.globalData.userWxId
       },
       method: 'post',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        if (res.data.length > 0) {
-          
-          that.setData({
-            hotelUsers: res.data,
-            teamName: res.data[0].teamName,
-            inDate: res.data[0].inDate,
-            outDate: res.data[0].outDate
-          })
-        }else{
-          that.setData({
-            teamName: '暂无房间信息！'
-          })
-        }
+        console.log('res')
+        console.log(res)
+        that.setData({
+          users: res.data
+        })
+
       },
       fail: function (res) {
         console.log("--------fail--------");

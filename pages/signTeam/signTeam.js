@@ -75,6 +75,11 @@ Page({
         console.log("--------fail--------");
       }
     })
+  }, 
+  noSignUserBtn: function(e) {
+    wx.navigateTo({
+      url: '../noSignUser/noSignUser',
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -167,6 +172,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log('res')
         console.log(res)
         that.setData({
           users: res.data

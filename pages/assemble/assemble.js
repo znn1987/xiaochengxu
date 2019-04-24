@@ -26,6 +26,20 @@ Page({
    */
   onLoad: function (options) {
 
+    var _this = this;
+    var myAmapFun = new amapFile.AMapWX({ key: 'f149525102fd153e6f12230efd1996bf' });
+    //获取位置省市区
+    myAmapFun.getRegeo({
+      success: function (res) {
+        console.log('这是位置信息' + res)
+        _this.setData({
+          currentLo: res[0].longitude,
+          currentLa: res[0].latitude
+        })
+      }
+    })
+    var markers = _this.data.markers;
+    var points = _this.data.includePoints;
     // const that = this;
     // var myAmapFun = new amapFile.AMapWX({ key: 'f149525102fd153e6f12230efd1996bf' });
     // //获取位置省市区
@@ -38,35 +52,35 @@ Page({
     //   }
 
     //     })
-    var _this = this;
-    var markers = _this.data.markers;
-    var points = _this.data.includePoints;
-    wx.getLocation({
+    // var _this = this;
+    // var markers = _this.data.markers;
+    // var points = _this.data.includePoints;
+    // wx.getLocation({
       
-      success(res) {
-        markers.push({
-          id: 0,
-          longitude: res.longitude,
-          latitude: res.latitude,
-          title: res.address,
-          // iconPath: '../../src/images/navi_s.png',
-          width: 32,
-          height: 32
-        });
+    //   success(res) {
+    //     markers.push({
+    //       id: 0,
+    //       longitude: res.longitude,
+    //       latitude: res.latitude,
+    //       title: res.address,
+    //       // iconPath: '../../src/images/navi_s.png',
+    //       width: 32,
+    //       height: 32
+    //     });
 
-        points.push({
-          longitude: res.longitude,
-          latitude: res.latitude
-        });
-        _this.setData({
-          currentLo: res.longitude,
-          currentLa: res.latitude,
-          includePoints: points,
-          markers: markers
-        });
+    //     points.push({
+    //       longitude: res.longitude,
+    //       latitude: res.latitude
+    //     });
+    //     _this.setData({
+    //       currentLo: res.longitude,
+    //       currentLa: res.latitude,
+    //       includePoints: points,
+    //       markers: markers
+    //     });
         
-      }
-    })
+    //   }
+    // })
     var that = this;
     //获取集合位置 等
     if (options.longitude != undefined) {

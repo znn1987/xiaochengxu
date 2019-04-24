@@ -1,4 +1,4 @@
-<!--pages/team/team.wxml-->
+<!--pages/team/team.wxml
 <view style='background-color: rgb(215, 215, 215);'>
 <view style='float:right;padding:30rpx'>{{time}}</view>
 <view style='padding:30rpx'>{{address}}</view>
@@ -7,21 +7,39 @@
 <view style='padding:30rpx'>湿度：{{weather.humidity.data}}</view>
 <view style='padding:30rpx'>风向：{{weather.winddirection.data}}</view>
 <view style='padding:30rpx'>风力：{{weather.windpower.data}}</view>
+-->
+<view style="background-image: url('../images/weather.jpeg');background-size:100% 100%;-moz-background-size:100% 100%;">
+<view style='display: flex;justify-content:space-between;padding:30rpx;'>
+<text>{{address}}</text>
+<text>{{time}}</text>
+</view>
+<view style='padding:10rpx 30rpx'>天气：{{weather.weather.data}}</view>
+<view style='padding:10rpx 30rpx'>温度：{{weather.temperature.data}}°</view>
+<view style='padding:10rpx 30rpx'>湿度：{{weather.humidity.data}}</view>
+<view style='padding:10rpx 30rpx'>风向：{{weather.winddirection.data}}</view>
+<view style='padding:10rpx 30rpx'>风力：{{weather.windpower.data}}</view>
 </view>
  
-<view>
-<view  style="display:flex;padding:15rpx 80rpx;align-items: center;justify-content: center;">
+<view style="padding:30rpx;">
+<view  style="display:flex;padding:30rpx 80rpx;align-items: center;justify-content:space-between;">
+<!--
 <image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
-<text class = " {{code == 1 ?'nodownbtn':'downbtn'}}" decode="{{true}}" bindtap='myTeam'>  {{teamName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{allUser}}{{code == 1 ?'':'人'}} </text> 
-<image style="float:right;height: 70rpx;width: 70rpx;" bindtap='myTeam' src ='../images/right.png'></image>
+-->
+<view>
+<text class = " {{code == 1 ?'nodownbtn':'downbtn'}}"bindtap='myTeam'>  {{teamName}} </text> 
+</view>
+<view >
+<text class = " {{code == 1 ?'nodownbtn':'downbtn'}}" bindtap='myTeam'> {{allUser}}{{code == 1 ?'':'人'}} </text> 
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap='myTeam' src ='../images/right.png'></image>
+</view>
 </view>
 <view class="{{code == 1?'hide':'show'}}" style="display:flex;align-items: center;justify-content: center;">
 <text  bindtap='myTeam' >  {{start}} {{code == 1?'':'-'}} {{end}} </text> 
 </view>
 </view>
 
-<view style='background-color: rgb(242, 242, 242);height: 200px;'>
-<view style="padding:15rpx"> 
+<view style='background-color: rgb(242, 242, 242);height: 250px;'>
+<view style="padding:30rpx"> 
 <button class = " {{code == 1 ?'btn2':'btn1'}}" bindtap='addTeam'>{{code == 1 ?'创建队伍':'编辑队伍'}}  </button> 
 </view>
 <!--

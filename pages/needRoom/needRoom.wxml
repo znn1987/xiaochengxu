@@ -44,4 +44,9 @@
 <label>三人间：</label>
 <input class="input" maxlength="3" value="{{type3Sum}}" placeholder="填写房间数量"  name="type3Sum" bindinput ="type3SumInput"   ></input>间
 </view>
+
+<view style="display:flex;padding:15rpx 30rpx;">
+<text decode="{{true}}">套&nbsp;&nbsp;&nbsp;房：</text>
+<input class="input" maxlength="3" value="{{type4Sum}}" placeholder="填写房间数量"  name="type4Sum" bindinput ="type4SumInput"   ></input>间
+</view>
 <button class='btn2' bindtap="saveTypes"> 保存 </button>

@@ -1,0 +1,12 @@
+<!--pages/noAssembleUser/noAssembleUser.wxml-->
+
+<block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
+<view class="{{user.type == 4?'show':'hide'}}">
+<view  style='display: flex;align-items:center;padding:30rpx 30rpx;justify-content:space-between;' >
+
+  <text style='display: flex;width:70%;'>姓名：{{user.userName}}</text>
+  <image style='align-items: center;' src="/pages/images/tel.png" class="img-plus-style1" data-text="{{user.phone}}" bindtap="calling"></image>
+</view>
+</view>
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+</block>

@@ -1,0 +1,2 @@
+<!--pages/assemblePhoto/assemblePhoto.wxml-->
+<image mode="widthFix" style="align-items: center;justify-content: center;width: {{imageWidth}}px;" src="data:image/jpeg;base64,{{photos}}"></image>

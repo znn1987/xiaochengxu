@@ -1,0 +1,13 @@
+/* pages/noSignUser/noSignUser.wxss */
+.img-plus-style1 {  
+  height: 50rpx;  
+  width: 50rpx; 
+  opacity: 0.7
+} 
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}

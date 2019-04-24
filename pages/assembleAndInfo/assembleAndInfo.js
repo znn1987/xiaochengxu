@@ -7,8 +7,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    assembleTime: '数据加载中！！！',
+    assembleDress: '数据加载中！！！',
     photos: 1,
     count: 0
+  },
+  //图片放大
+  previewImage: function (e) {
+    if (this.data.photos!=''){
+      wx.navigateTo({
+        url: '../assemblePhoto/assemblePhoto?photos=' + this.data.photos
+      })
+    }
+    
   },
   //导航跳转
   GPS: function (e) {
@@ -118,11 +129,16 @@ Page({
       }
     })
   },
+  noAssembleUserBtn: function (e) {
+    wx.navigateTo({
+      url: '../noAssembleUser/noAssembleUser',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(wx.getSystemInfoSync().windowWidth)
     var that = this
     that.setData({
       userWxId: app.globalData.userWxId,
@@ -148,6 +164,7 @@ Page({
             that.setData({
               assembleTime: res.data.assembleTime,
               assembleDress: res.data.assembleDress,
+              photos: '',
               longitude: res.data.longitude,
               latitude: res.data.latitude
               

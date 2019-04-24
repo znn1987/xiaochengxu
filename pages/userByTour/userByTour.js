@@ -43,37 +43,38 @@ Page({
   },
   //生成二维码：后台生成，返回前台
   erBtn: function (e) {
-    console.log("生成二维码");
-    var that = this
-    wx.request({
-      url: app.globalData.url + '/team/er',
-      data: {
-        userWxId: app.globalData.userWxId,
-        startDate: this.data.dateStart,
-        endDate: this.data.dateEnd
-      },
-      method: 'post',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        console.log(res.data);
-        that.setData({
-          //captchaImage: "../images/erweima/" + res.data.tourTeamCode + "img.png"
-          token: res.data.token,
-          teamCode: res.data.teamCode,
-          imgurl: res.data.re
-        })
-        wx.navigateTo({
-          url: '../erTeam/erTeam?er=' + res.data.re,
-        })
-
-
-      },
-      fail: function (res) {
-        console.log("--------fail--------");
-      }
+    wx.navigateTo({
+      url: '../erTeam/erTeam?startDate=' + this.data.startDate + '&endDate=' + this.data.endDate,
     })
+    // console.log("生成二维码");
+    // var that = this
+    // wx.request({
+    //   url: app.globalData.url + '/team/er',
+    //   data: {
+    //     userWxId: app.globalData.userWxId,
+    //     startDate: this.data.dateStart,
+    //     endDate: this.data.dateEnd
+    //   },
+    //   method: 'post',
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded'
+    //   },
+    //   success: function (res) {
+    //     console.log(res.data);
+    //     that.setData({
+    //       //captchaImage: "../images/erweima/" + res.data.tourTeamCode + "img.png"
+    //       token: res.data.token,
+    //       teamCode: res.data.teamCode,
+    //       imgurl: res.data.re
+    //     })
+        
+
+
+    //   },
+    //   fail: function (res) {
+    //     console.log("--------fail--------");
+    //   }
+    // })
   },
 
   //由队长修改游客信息按钮跳转

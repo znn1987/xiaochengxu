@@ -16,7 +16,10 @@
 <block wx:for="{{datas}}" wx:key="idx" wx:for-item="data" wx:for-index="idx">
 <view style="padding:5rpx 30rpx;">
 <text decode="{{true}}">
-  {{idx+1}}.&nbsp;&nbsp;{{data.hotelName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.sum}}间
+  {{idx+1}}.&nbsp;&nbsp;{{data.inDate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.outDate}}
+</text>
+<text decode="{{true}}">
+  &nbsp;&nbsp;&nbsp;&nbsp;{{data.hotelName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.sum}}间
 </text>
 </view>
 </block>
