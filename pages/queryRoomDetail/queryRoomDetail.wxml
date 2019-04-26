@@ -3,11 +3,12 @@
 <view style="padding:15rpx 30rpx">
   <block wx:for="{{users}}" wx:key="idx" wx:for-item="user">
     <view style='background-color: rgb(208, 230, 114);'>
-    入住日期：{{user.inDate}}--{{user.outDate}}
-      入住团队：{{user.teamName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;导游：{{user.tourName}}
-      入住房间：{{user.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房间号：{{user.roomNum}}
-    姓名：{{user.userName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性别：{{user.userSex}}
-    身份证号：{{user.userCode}}
+    <text  decode="{{true}}" >入住日期：{{user.inDate}}--{{user.outDate}}</text>
+    <text  decode="{{true}}" >  入住团队：{{user.teamName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;导游：{{user.tourName}}</text>
+    <text  decode="{{true}}" >  入住房间：{{user.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房间号：{{user.roomNum}}</text>
+   <text  decode="{{true}}" > 姓名：{{user.userName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性别：{{user.userSex}}</text>
+   <text  decode="{{true}}" > 身份证号：{{user.userCode}}
+    </text>
     </view>
     <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
   <!--

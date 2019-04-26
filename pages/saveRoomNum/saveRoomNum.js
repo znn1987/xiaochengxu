@@ -24,35 +24,42 @@ Page({
 
   //保存个人信息
   saveRooms: function (e) {
-    if (this.data.rooms == "" || this.data.tourCode == "") {
-      wx.showToast({
-        title: '房间号码不能为空！！',
-        icon: 'none',
-        duration: 2000,
-        mask: false
-      })
-      return
-    }
-    var list = this.data.rooms.split(",");
-    if (list.length != this.data.roomSum){
-      wx.showToast({
-        title: '房间数与需要数目不同，请检查是否输入有误(英文逗号)！！',
-        icon: 'none',
-        duration: 2000,
-        mask: false
-      })
-      return
-    }
-    var i=0;
-    for (i; i < list.length;i++){
-      if(list[i]==""){
+    if ( this.data.roomSum == 0){
+
+    }else{
+      if (this.data.rooms == "" || this.data.tourCode == "" ) {
         wx.showToast({
-          title: '房间号不能为空，请检查是否输入有误(英文逗号)！！',
+          title: '房间号码不能为空！！',
           icon: 'none',
           duration: 2000,
           mask: false
         })
         return
+      }
+      var list = this.data.rooms.split(",");
+      if (list.length != this.data.roomSum) {
+        list = this.data.rooms.split("，");
+      }
+      if (list.length != this.data.roomSum){
+        wx.showToast({
+          title: '房间数与需要数目不同，请检查是否输入有误！！',
+          icon: 'none',
+          duration: 2000,
+          mask: false
+        })
+        return
+      }
+      var i=0;
+      for (i; i < list.length;i++){
+        if(list[i]==""){
+          wx.showToast({
+            title: '房间号不能为空，请检查是否输入有误！！',
+            icon: 'none',
+            duration: 2000,
+            mask: false
+          })
+          return
+        }
       }
     }
     wx.request({

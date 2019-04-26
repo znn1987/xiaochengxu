@@ -1,0 +1,9 @@
+<!--pages/newNotice/newNotice.wxml-->
+
+<view style="display:flex;padding:30rpx 30rpx;">
+<label>标题：</label><text>{{title}}</text>
+</view>
+<view style="padding:30rpx">
+<label>内容：</label>
+<textarea>{{notice}}</textarea>
+</view>

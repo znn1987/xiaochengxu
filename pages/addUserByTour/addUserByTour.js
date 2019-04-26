@@ -6,7 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userName: '',
+    userSex: '1',
+    userAge: 0,
+    userCode: '',
+    phone: '',
+    userType: '4',
+    isHotel: '1'
   },
 
   //获取用户输入的姓名

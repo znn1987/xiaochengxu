@@ -1,0 +1,22 @@
+<!--pages/noticeSet/noticeSet.wxml-->
+
+<view style="padding:30rpx">
+<label>编号：</label>
+<text data-text="{{code}}" >{{code}}</text>
+</view>
+
+<view style="padding:30rpx">
+<label>标题：</label>
+<input style="border-style: solid;" maxlength="12" value="{{title}}" name="title" bindinput ="titleInput"></input>
+</view>
+<view style="padding:30rpx">
+<label>内容：</label>
+<textarea style="border-style: solid;" maxlength="100" value="{{notice}}" name="notice" bindinput ="noticeInput"></textarea>
+</view>
+
+<view style="display:flex;">
+<button bindtap="cancel">取消</button>
+<button bindtap="saveNotice">保存</button>
+</view>
+
+

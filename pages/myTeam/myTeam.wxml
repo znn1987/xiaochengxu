@@ -53,7 +53,7 @@
 </view>
 </view>
 <view>
-<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="room" src ='../images/right.png'></image>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="queryRoom" src ='../images/right.png'></image>
 </view>
 </view>
 <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
@@ -65,7 +65,7 @@
 </view>
 </view>
 <view>
-<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="room" src ='../images/right.png'></image>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="signTeam" src ='../images/right.png'></image>
 </view>
 </view>
 <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
@@ -77,10 +77,25 @@
 </view>
 </view>
 <view>
-<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="room" src ='../images/right.png'></image>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="assemble" src ='../images/right.png'></image>
+</view>
+</view>
+
+<view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+
+<view  style="display:flex;padding:15rpx 30rpx;justify-content:space-between;">
+<view style="display:flex;">
+<image style="height: 60rpx;width: 60rpx;" src ='../images/front3.jpg'></image>
+<view style="padding:1rpx 20rpx;">
+<text  decode="{{true}}" bindtap="noticeSet"> &nbsp;&nbsp;公&nbsp;&nbsp;&nbsp;&nbsp;告 </text> 
+</view>
+</view>
+<view>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap="noticeSet" src ='../images/right.png'></image>
 </view>
 </view>
 <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+
 <!--
 <view class=" {{userType == 1 && teamName != '' ?'show':'hide'}}" style="display:flex;padding:2rpx 30rpx " >
 <label>团队总人数：</label>{{allUser}}人  

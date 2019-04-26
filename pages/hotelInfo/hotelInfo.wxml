@@ -28,7 +28,7 @@
     {{dateEnd}}
   </picker>
   </view>
-  <button bindtap="queryTeam" class="queryBtn" style="background-image:url(../images/query.jpg);">  </button>
+  <image bindtap="queryTeam" class="queryBtn" src ='../images/query.jpg'>  </image>
 </view>
 <button bindtap='queryRoomDetail' data-text='{{data.inDate}},{{data.outDate}}' >查询详细</button>
 <block wx:for="{{datas}}" wx:key="idx" wx:for-item="data" wx:for-index="idx">

@@ -12,6 +12,23 @@ Page({
     photos: 1,
     count: 0
   },
+  //打电话
+  calling: function (e) {
+    console.log(e)
+    var phone = e.currentTarget.dataset.text
+    if (phone == null || phone == 'undefined' || phone == '') {
+      wx.showToast({
+        title: '未填写联系电话！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
   //图片放大
   previewImage: function (e) {
     if (this.data.photos!=''){

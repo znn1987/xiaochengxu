@@ -125,9 +125,9 @@ Page({
             url: app.globalData.url + '/team/add',
             data: {
               userWxId: app.globalData.userWxId,
-              teamName: this.data.teamName,
-              startDate: this.data.dateStart,
-              endDate: this.data.dateEnd
+              teamName: that.data.teamName,
+              startDate: that.data.dateStart,
+              endDate: that.data.dateEnd
             },
             method: 'post',
             header: {

@@ -87,17 +87,26 @@ Page({
           for(i;i<res.data.length;i++) {
             if(res.data[i].type==1){
               that.setData({
-                type1Sum: res.data[i].sum
+                type1Sum: res.data[i].sum,
+                type1: res.data[i].sum
               })
             }
             if (res.data[i].type == 2) {
               that.setData({
-                type2Sum: res.data[i].sum
+                type2Sum: res.data[i].sum,
+                type2: res.data[i].sum
               })
             }
             if (res.data[i].type == 3) {
               that.setData({
-                type3Sum: res.data[i].sum
+                type3Sum: res.data[i].sum,
+                type3: res.data[i].sum
+              })
+            }
+            if (res.data[i].type == 4) {
+              that.setData({
+                type4Sum: res.data[i].sum,
+                type4: res.data[i].sum
               })
             }
 

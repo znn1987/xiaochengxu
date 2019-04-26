@@ -11,7 +11,8 @@
     {{dateEnd}}
   </picker>
   </view>
-  <button class='queryBtn' style="background-image:url(../images/query.jpg);" bindtap="queryRoomNum">  </button>
+  <image class='queryBtn' bindtap="queryRoomNum" src ='../images/query.jpg'>  </image>
+  
 </view>
 <view style="display:flex;padding:15rpx 30rpx">团队总人数：
     {{allUser}}人

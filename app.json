@@ -3,6 +3,8 @@
     
     "pages/authorization/authorization",
     "pages/team/team",
+    "pages/newNotice/newNotice",
+    "pages/allNotice/allNotice",
     "pages/addTeam/addTeam",
     "pages/myTeam/myTeam",
     "pages/erTeam/erTeam",
@@ -13,6 +15,9 @@
     "pages/assemblePhoto/assemblePhoto",
     "pages/assemble/assemble",
     "pages/noAssembleUser/noAssembleUser",
+    "pages/notice/notice",
+    "pages/noticeSet/noticeSet",
+    "pages/teamNotice/teamNotice",
     "pages/oldTeam/oldTeam",
     "pages/room/room",
     "pages/queryRoom/queryRoom",

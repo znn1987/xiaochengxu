@@ -65,7 +65,7 @@ Page({
       url: '../queryRoom/queryRoom',
     })
   },
-  //房间查看
+  //签到
   signTeam: function (e) {
     wx.navigateTo({
       url: '../signTeam/signTeam',
@@ -144,6 +144,13 @@ Page({
       }
     })
   },
+  //编辑公告
+  noticeSet: function (e) {
+
+    wx.navigateTo({
+      url: '../notice/notice',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -182,6 +189,7 @@ Page({
             end: res.data[0].tourTeamLoseDate
           })
 
+          //有队伍才能查队伍人数
           wx.request({
             url: app.globalData.url + '/userByTour/signSum',
             data: {
@@ -217,7 +225,7 @@ Page({
               console.log("--------fail--------");
             }
           })
-
+          
         }
         
       },

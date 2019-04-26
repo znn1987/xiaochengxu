@@ -1,0 +1,15 @@
+<!--pages/allNotice/allNotice.wxml-->
+
+<block wx:for="{{notices}}" wx:key="idx" wx:for-item="notice" wx:for-index="idx">
+
+<view style="display:flex;padding:30rpx 30rpx;justify-content:space-between;">
+<view style="display:flex;">
+<label>标题：</label><text bindtap='newNotice' data-text='{{notice.code}}'>{{notice.title}}</text>
+</view>
+<view>
+<image style="float:right;height: 50rpx;width: 50rpx;" bindtap='newNotice' data-text='{{notice.code}}' src ='../images/right.png'></image>
+</view>
+</view>
+<view style='background-color: rgb(242, 242, 242);height: 5px;'></view>
+
+</block>
