@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    count: 0,
+    notices: ''
   },
 
   //公告详情跳转
@@ -41,12 +42,14 @@ Page({
           wx.navigateBack({
 
           })
+          setTimeout(function () {
           wx.showToast({
             title: '暂无公告！！！',
             icon: 'none',
             duration: 2000,
             mask: false
           })
+          }, 1000) 
          
         }
 
@@ -68,7 +71,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (this.data.count != 0) {
+      var that = this
+      that.onLoad("show")
+    }
+    this.setData({
+      count: 1
+    })
   },
 
   /**

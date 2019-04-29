@@ -1,6 +1,57 @@
-<!--pages/queryRoom/queryRoom.wxml-->
+<!-- pages/queryRoom/queryRoom.wxml-->
+<view class='title'>团队信息</view>
+<view class='waibu'>
+      <view class='hang'>
+        <view class='tour'>团队名称：{{teamName}}</view>
+      </view>
+    
+<!--     入住日期      -->
+      
+       <view class='hang'>
+        <view class='datelable'>
+          入住日期:
+        </view>
+        <view class='dateTime'>
+           {{inDate}}
+        </view>
+      </view>
+      <view class='hang'>
+        <view class='datelable'>
+          退房日期:
+        </view>
+        <view class='dateTime'>
+          {{outDate}}
+        </view>
+      </view>
+</view>   
+      <!--     第二行      -->
 
-<view style="display:flex;padding:30rpx">团队：
+<view class='title'>住房信息</view>
+  <block wx:for="{{hotelUsers}}" wx:key="idx" wx:for-item="user">
+    <view class='waibu'>
+      <view class='hang'>
+        <view class='tour'>酒店（宾馆）名称：{{user.hotelName}}</view>
+      </view>
+      <view class='hang'>
+        <view class='roomNumber'>房间号：{{user.roomNum}}</view>
+        <view class='roomType'>房间类型：{{user.typeName}}</view>
+      </view>
+      
+       <!--     第五行      -->
+       <view class='hang'>
+        <view class='userName'>姓名：{{user.userName}}</view>
+        <view class='sex'>性别：{{user.userSex}}</view>
+      </view> 
+       <!--     第六行      -->
+      
+       <view class='geceng'></view>
+    </view> 
+  </block> 
+
+
+
+
+<!-- <view style="display:flex;padding:30rpx">团队：
     {{teamName}}
 </view>
 <view style="display:flex;padding:30rpx">入住日期：
@@ -8,15 +59,15 @@
 </view>
 <view style="display:flex;padding:30rpx">退房日期：
     {{outDate}}
-</view>
-<!--
-<view style="display:flex;">房间类型：
+</view> -->
+
+<!-- <view style="display:flex;">房间类型：
     {{user.typeName}}
 </view>
 <view style="display:flex;">房间号：{{user.roomNum}}</view>
--->
-<text style="padding:30rpx">房间成员</text>
-<view >
+
+<text style="padding:30rpx">房间成员</text> -->
+<!-- <view >
 <block wx:for="{{hotelUsers}}" wx:key="idx" wx:for-index="idx" wx:for-item="user">
 <view style='display:flex;padding:8rpx 16rpx'>
 <view style="display:flex;padding:30rpx">酒店（宾馆）名称：
@@ -28,4 +79,5 @@
 </text>
 </view>
 </block>
-</view>
+</view>  -->
+

@@ -36,52 +36,79 @@
 
   <!--队伍信息-->
 <view style="padding:30rpx;">
-<view  style="display:flex;padding:30rpx 60rpx;align-items: center;justify-content:space-between;">
+    <view  style="display:flex;padding:30rpx 60rpx;align-items: center;justify-content:space-between;">
 <!--
 <image style="height: 70rpx;width: 70rpx;" src ='../images/front1.jpg'></image>
 -->
-<view>
-<text class = " {{code == 1 ?'nodownbtn':'downbtn'}}"bindtap='myTeam'>  {{teamName}} </text> 
-</view>
-<view >
-<text class = " {{code == 1 ?'nodownbtn':'downbtn'}}" bindtap='myTeam'> {{allUser}}{{code == 1 ?'':'人'}} </text> 
-<image class="{{userType != 1?'hide':'show'}}" style="float:right;height: 50rpx;width: 50rpx;" bindtap='myTeam' src ='../images/right.png'></image>
-</view>
-</view>
-<view class="{{code == 1?'hide':'show'}}" style="display:flex;align-items: center;justify-content: center;">
-<text  bindtap='myTeam' >  {{start}} {{code == 1?'':'-'}} {{end}} </text> 
-</view>
+        <view>
+        <text class = " {{code == 1 ?'nodownbtn':'downbtn'}}"bindtap='addTeam'>  {{teamName}} </text> 
+        </view>
+        <view >
+        <text class = " {{code == 1 ?'nodownbtn':'downbtn'}}" bindtap='addTeam'> {{code == 1?'':allUser}}{{code == 1 ?'':'人'}} </text> 
+
+        <image class="{{userType != 1?'hide':'show'}}" style="float:right;height: 50rpx;width: 50rpx;" bindtap='addTeam' src ='../images/right.png'></image>
+
+        </view>
+     </view>
+    <view class="{{code == 1?'hide':'show'}}" style="display:flex;align-items: center;justify-content: center;">
+    <text  bindtap='addTeam' >  {{code == 1?'':start}} {{code == 1?'':'-'}} {{code == 1?'':end}} </text> 
+    </view>
 </view>
 
 
- <!--导游显示按钮-->
+ <!--
 <view class="{{userType != 1?'hide':'show'}}" style='background-color: rgb(242, 242, 242);height: 250px;'>
 <view class="{{userType != 1?'hide':'show'}}" style="padding:30rpx"> 
 <button class = " {{code == 1 ?'btn2':'btn1'}}" bindtap='addTeam'>{{code == 1 ?'创建队伍':'编辑队伍'}}  </button> 
 </view>
+-->
+<!--导游显示按钮-->
+<view class="{{userType == 1?'show':'hide'}}" style='background-color: rgb(242, 242, 242);height: 250px;'>
+<view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
+  <button class = 'btn' bindtap='userBtn'> 队员 </button>
+  <button class = 'btn' bindtap='room'> 分房 </button>
+  <button class = 'btn' bindtap='queryRoom'> 查房 </button>
+  <button class = 'btn' bindtap='assemble'> 集合 </button>
+</view>
+<view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
+  <button class = 'btn' bindtap='signTeam'> 签到 </button>
+  <button class = 'btn' bindtap='noticeSet'> 公告 </button>
+  <button class = 'btn' bindtap='oldTeam'> 成就 </button>
+  <button class = 'btn' bindtap='more'> …… </button>
+</view>
+</view>
+
 <!--
 <view style="padding:15rpx">
 <button class = 'btn1' bindtap='myTeam'> 我的队伍 </button>
 </view>
--->
+
 <view style="padding:30rpx">
 <button class = 'btn1' bindtap='oldTeam'> 历史队伍 </button>
 </view>
 </view>
-
+-->
 
 <!--游客显示按钮-->
 <view class="{{userType == 1?'hide':'show'}}" style='background-color: rgb(242, 242, 242);height: 250px;'>
-<view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
-<button class = 'btn' bindtap='signTeam'> 签到 </button>
-<button class = 'btn' bindtap='assemble'> 集合 </button>
-<button class = 'btn' bindtap='queryRoom'> 房间 </button>
-<button class = 'btn' bindtap='allNotice'> 公告 </button>
+  <view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
+    <button class = 'btn' bindtap='signTeam'> 签到 </button>
+    <button class = 'btn' bindtap='assemble'> 集合 </button>
+    <button class = 'btn' bindtap='queryRoom'> 房间 </button>
+    <button class = 'btn' bindtap='allNotice'> 公告 </button>
+  </view>
+  <view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
+    <button class = 'btn' bindtap='oldTeam'> 足迹 </button>
+    <button class = 'btn'bindtap='strategy'> 攻略 </button>
+    <button class = 'btn' bindtap='shop'> 特产 </button>
+    <button class = 'btn' bindtap='more'> 更多 </button>
+  </view>
 </view>
-<view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
-<button class = 'btn' bindtap='oldTeam'> 足迹 </button>
-<button class = 'btn'bindtap='strategy'> 攻略 </button>
-<button class = 'btn' bindtap='shop'> 特产 </button>
-<button class = 'btn' bindtap='more'> 更多 </button>
-</view>
-</view>
+
+
+
+
+
+
+
+

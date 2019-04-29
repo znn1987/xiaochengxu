@@ -11,8 +11,52 @@
     {{dateEnd}}
   </picker>
   </view>
-  <image class='queryBtn' bindtap="queryRoomNum" src ='../images/query.jpg'>  </image>
   
+  <!--
+  <image class='queryBtn' bindtap="queryRoomNum" src ='../images/query.jpg'>  </image>
+  -->
+</view>
+<view>
+<button class='btn2'  bindtap="queryNeedRoom">查询</button>
+</view>
+<!--
+<view style='background-color: rgb(238, 226, 226);height: 5px;'>
+</view>
+
+<view  style="display:flex;padding:15rpx 30rpx;justify-content:space-between;">
+    <view style="display:flex;">
+    <image style="height: 60rpx;width: 60rpx;" src ='../images/front1.jpg'></image>
+        <view style="padding:1rpx 20rpx;">
+        <text  decode="{{true}}" bindtap="queryNeedRoom"> 查询房间数 </text>
+        </view>
+    </view>
+
+    <view>
+    <image style="float:right;height: 50rpx;width: 50rpx;" bindtap="queryNeedRoom" src ='../images/right.png'></image>
+    </view>
+
+</view>
+
+<view style='background-color: rgb(238, 226, 226);height: 5px;'></view>
+
+<view  style="display:flex;padding:15rpx 30rpx;justify-content:space-between;">
+    <view style="display:flex;">
+    <image style="height: 60rpx;width: 60rpx;" src ='../images/front1.jpg'></image>
+        <view style="padding:1rpx 20rpx;">
+        <text  decode="{{true}}" bindtap="needRoom">与酒店（宾馆）沟通</text> 
+        </view>
+    </view>
+    <view>
+    <image style="float:right;height: 50rpx;width: 50rpx;" bindtap="needRoom" src ='../images/right.png'></image>
+    </view>
+</view>
+<view style='background-color: rgb(238, 226, 226);height: 5px;'></view>
+
+<button class='btn2' bindtap="queryNeedRoom">查询房间数</button>
+-->
+<view style="display:flex;">
+<button class='btn4' bindtap="needRoomByTour">自定义分房</button>
+<button class='btn4' bindtap="needRoom">订房沟通</button>
 </view>
 <view style="display:flex;padding:15rpx 30rpx">团队总人数：
     {{allUser}}人
@@ -23,8 +67,7 @@
 <view style="display:flex;padding:15rpx 30rpx">未完成分房人数：
     {{overUser}}人
 </view>
-<button class='btn2' bindtap="queryNeedRoom">查询房间数</button>
-<button class='btn2' bindtap="needRoom">填写酒店（宾馆）及房间数</button>
+
 
 <view>
 <block wx:for="{{rooms}}" wx:key="idx" wx:for-item="room">

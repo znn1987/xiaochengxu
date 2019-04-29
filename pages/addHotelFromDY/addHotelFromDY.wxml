@@ -1,0 +1,77 @@
+<view class="pacge">
+  <view class="title" style='text-align:center'>
+    基本信息
+</view>
+<view class='top_Title'>
+   <view class='key'>订房日期：</view>
+  <picker class="Time_pick" mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
+    {{dateStart}}
+  </picker>
+  <view class='ciacle'>至</view>
+   <picker class="Time_pick2" mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
+    {{dateEnd}}
+  </picker>
+</view>
+<view class='top_Title'>
+   <view class='key'>酒店名称：</view>
+   <view class='value'>
+     <input class='text_value' value='{{hotel_Name}}' bindblur='setHotelName'>{{hotel_Name}}</input>
+   </view>
+</view>
+<view class='top_Title'>
+   <view class='key'>酒店电话：</view>
+   <view class='value'>
+     <input class='text_value' bindblur="setHotelNumber">{{hotel_Number}}</input>
+   </view>
+</view>
+<view>
+  <button class='queryBut' bindtap='button_query'>查询</button>
+</view>
+<view class='geceng'>
+
+</view>
+<view class="title" style='text-align:center'>
+    房间信息
+</view>
+<view class='room_contain'>
+   <view class="room_type">房间类型：</view>
+   <view class='type_name'>
+     大床房
+   </view>
+   <view>
+      房间号： <input class='roon_number' id="1" value='{{typeNo1.number}}' placeholder="多个房间请用逗号,隔开" bindblur='checkFormat' >{{typeNo1.number}}</input>
+   </view>
+</view>
+<view class='room_contain'>
+   <view class="room_type">房间类型：</view>
+   <view class='type_name'>
+     标准间
+   </view>
+   <view>
+      房间号： <input class='roon_number' id="2" value='{{typeNo2.number}}' bindblur='checkFormat' placeholder="多个房间请用逗号,隔开">{{typeNo2.number}}</input>
+   </view>
+</view>
+<view class='room_contain'>
+   <view class="room_type">房间类型：</view>
+   <view class='type_name'>
+     三人间
+   </view>
+   <view>
+      房间号： <input class='roon_number' id="3" value='{{typeNo3.number}}' bindblur='checkFormat' placeholder="多个房间请用逗号,隔开">{{typeNo3.number}}</input>
+   </view>
+</view>
+<view class='room_contain'>
+   <view class="room_type">房间类型：</view>
+   <view class='type_name'>
+     套房
+   </view>
+   <view>
+      房间号： <input class='roon_number' id="4" value='{{typeNo4.number}}' bindblur='checkFormat' placeholder="多个房间请用逗号,隔开">{{typeNo4.number}}</input>
+   </view>
+</view>
+<view class='button_save'>
+  <view class='cancel'><button class='buttonStyle butCancel' bindtap='button_cancel'>删除</button></view>
+   <view class='save'><button class='buttonStyle butSave' bindtap='button_save'>保存</button></view>
+</view>
+  
+</view>

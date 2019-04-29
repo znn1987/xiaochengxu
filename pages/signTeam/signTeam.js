@@ -77,9 +77,12 @@ Page({
     })
   }, 
   noSignUserBtn: function(e) {
-    wx.navigateTo({
-      url: '../noSignUser/noSignUser',
-    })
+    if (this.data.signUser>0){
+      wx.navigateTo({
+        url: '../noSignUser/noSignUser',
+      })
+    }
+   
   },
   /**
    * 生命周期函数--监听页面加载

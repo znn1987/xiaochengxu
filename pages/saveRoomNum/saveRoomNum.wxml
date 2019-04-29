@@ -1,8 +1,8 @@
-<!--pages/saveRoomNum/saveRoomNum.wxml-->
+<!--pages/saveRoomNum/saveRoomNum.wxml
 <view style="display:flex;">
 <label>订房队伍：</label>
 <text>{{teamName}}</text>
-</view>
+</view>-->
 <view style="display:flex;">
 <label>队伍负责人：</label>
 <text>{{userCodeName}}</text>

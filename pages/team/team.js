@@ -34,6 +34,9 @@ Page({
         url: '../addTeam/addTeam',
       })
     }else{
+      if (app.globalData.userType != 1){
+        return
+      }
       wx.showToast({
         title: '此次版本只允许注册导游创建队伍！！！！',
         icon: 'none',
@@ -71,6 +74,64 @@ Page({
   oldTeam: function (e) {
     wx.navigateTo({
       url: '../oldTeam/oldTeam',
+    })
+  },
+  //由队长添加游客信息按钮跳转
+  userBtn: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍再添加队员！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
+    if (app.globalData.userType == 1 && app.globalData.userState == 1) {
+      wx.navigateTo({
+        url: '../userByTour/userByTour?start=' + this.data.start + '&end=' + this.data.end,
+      })
+
+    } else {
+      wx.showToast({
+        title: '此次版本只允许注册导游创建队伍！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+
+    }
+
+  },
+  //队长在线分房--房间号码查看
+  room: function (e) {
+    if (app.globalData.userType == 1 && app.globalData.userState == 1) {
+      wx.navigateTo({
+        url: '../room/room',
+      })
+    } else {
+      wx.showToast({
+        title: '此次版本只允许注册导游创建队伍！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+
+    }
+  },
+  //队长房间查看
+  queryRoom: function (e) {
+    wx.navigateTo({
+      url: '../queryRoom/queryRoom',
+    })
+  },
+  //队长编辑公告
+  noticeSet: function (e) {
+
+    wx.navigateTo({
+      url: '../notice/notice',
     })
   },
   //游客房间查看
@@ -126,7 +187,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app)
     // 调用函数时，传入new Date()参数，返回值是日期和时间
     var time = util.formatTime(new Date());
     // 再通过setData更改Page()里面的data，动态更新页面的数据
@@ -138,19 +198,19 @@ Page({
 
     // 调用函数时，传入new Date()参数，返回值是日期和时间
     var time = util.formatTime(new Date());
-    // 再通过setData更改Page()里面的data，动态更新页面的数据
-    this.setData({
-      dateStart: time,
-      dateEnd: time,
-      userWxId: app.globalData.userWxId,
-      userType: app.globalData.userType,
-      noticeCode: 0
-    });
+    
     var that = this
     setTimeout(function () {
       //要延时执行的代码
-      console.log('3秒延时')
-   
+      // 再通过setData更改Page()里面的data，动态更新页面的数据
+      that.setData({
+        dateStart: time,
+        dateEnd: time,
+        userWxId: app.globalData.userWxId,
+        userType: app.globalData.userType,
+        noticeCode: 0
+      });
+
     wx.request({
       url: app.globalData.url + '/team/queryTeam',
       data: {
@@ -164,9 +224,6 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        console.log('加载队伍信息')
-        console.log(app)
-        console.log(res)
         var code = '';
 
        
@@ -189,7 +246,6 @@ Page({
               'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
-              console.log(res)
               if (res.data.allUser == null) {
                 that.setData({
                   allUser: 0
@@ -229,8 +285,6 @@ Page({
               'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
-              console.log('公告')
-              console.log(res)
               if (res.data.length > 0) {
                 that.setData({
                   title: res.data[0].title,
@@ -249,11 +303,20 @@ Page({
           })
 
         }else{
-          that.setData({
-            noticeCode: 0,
-            code: 1,
-            teamName: '当前没有加入任何队伍！！'
-          })
+          if (app.globalData.userType==1){
+            that.setData({
+              noticeCode: 0,
+              code: 1,
+              teamName: '点击创建队伍！！'
+            })
+          }else{
+            that.setData({
+              noticeCode: 0,
+              code: 1,
+              teamName: '当前没有加入任何队伍！！'
+            })
+          }
+          
         }
 
       },
@@ -261,7 +324,7 @@ Page({
         console.log("--------fail--------");
       }
     })
-    }, 5000) 
+    }, 1000) 
   },
 
   getLocation: function () {
@@ -306,7 +369,10 @@ Page({
   onShow: function () {
     if (this.data.count != 0) {
       var that = this
-      
+      that.setData({
+        teamName: '数据加载中……',
+        code: 1
+      });
       that.onLoad("show")
     }
     this.setData({

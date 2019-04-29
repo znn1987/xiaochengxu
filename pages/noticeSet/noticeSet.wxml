@@ -7,11 +7,11 @@
 
 <view style="padding:30rpx">
 <label>标题：</label>
-<input style="border-style: solid;" maxlength="12" value="{{title}}" name="title" bindinput ="titleInput"></input>
+<input style="border:1px solid #B9B6B6;text-align:center;width:83%;float:right" maxlength="12" value="{{title}}" name="title" bindinput ="titleInput"></input>
 </view>
 <view style="padding:30rpx">
 <label>内容：</label>
-<textarea style="border-style: solid;" maxlength="100" value="{{notice}}" name="notice" bindinput ="noticeInput"></textarea>
+<textarea style="border:1px solid #B9B6B6;padding-left:20rpx;padding-top:20rpx;width:96%;" maxlength="100" value="{{notice}}" name="notice" bindinput ="noticeInput"></textarea>
 </view>
 
 <view style="display:flex;">

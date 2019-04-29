@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    title:'',
+    notice:''
   },
 
   /**
@@ -14,6 +15,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    
+   
+    that.setData({
+      
+    })
     wx.request({
       url: app.globalData.url + '/notice/queryNoticeUser',
       data: {
@@ -30,6 +36,25 @@ Page({
           that.setData({
             title: res.data[0].title,
             notice: res.data[0].text
+          })
+
+          wx.request({
+            url: app.globalData.url + '/notice/updateNoticeUser',
+            data: {
+              userWxId: app.globalData.userWxId,
+              code: options.noticeCode,
+              teamCode: app.globalData.teamCode
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+              
+            },
+            fail: function (res) {
+              console.log("--------fail--------");
+            }
           })
         }else{
           wx.navigateBack({

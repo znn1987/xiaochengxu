@@ -1,13 +1,21 @@
 /* pages/hotelInfo/hotelInfo.wxss */
 
 .section{
-   background:rgb(73, 227, 196);
+   border: 1px solid #B9B6B6;
+   font-family: Georgia, 'Times New Roman', Times, serif;
    margin:20rpx;
-   padding:20rpx;
+   padding-top:8rpx; 
+   padding-left: 8rpx;
    width: 30%
 }
-
+.time{
+  width: 165rpx;
+  position: relative;
+  top: 28rpx;
+  left: 8rpx;
+}
 .queryBtn{
+
 width:90rpx;
 height:90rpx;
 margin:20rpx 2rpx;

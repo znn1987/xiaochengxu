@@ -1,4 +1,4 @@
-<!--pages/roomAssign/roomAssign.wxml-->
+<!--pages/roomAssign/roomAssign.wxml
 <view  style="display:flex;">
   <view class="section"  >
     <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
@@ -23,3 +23,13 @@
 </text>
 </view>
 </block>
+-->
+
+<view>
+<block wx:for="{{rooms}}" wx:key="idx" wx:for-item="room">
+
+<button class='btn3' data-text='{{room.hotelPhone}},{{room.roomType}},{{room.typeName}},{{room.num}}' bindtap="roomOnLine">{{room.hotelName}}：
+    {{room.typeName}}--{{room.num}}
+</button>
+</block>
+</view>

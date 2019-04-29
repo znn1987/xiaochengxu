@@ -1,8 +1,38 @@
 <!--pages/queryRoomDetail/queryRoomDetail.wxml-->
 
-<view style="padding:15rpx 30rpx">
+
   <block wx:for="{{users}}" wx:key="idx" wx:for-item="user">
-    <view style='background-color: rgb(208, 230, 114);'>
+    <view class='waibu'>
+<!--     第一行入住日期      -->
+      <view class='hang'>
+        <view class='datelable'>
+          入住日期:
+        </view>
+        <view class='dateTime'>
+          {{user.inDate}}--{{user.outDate}}
+        </view>
+      </view>
+      <!--     第二行      -->
+      <view class='hang'>
+        <view class='roomNumber'>房间号：{{user.roomNum}}</view>
+        <view class='roomType'>房间类型：{{user.typeName}}</view>
+      </view>
+      <!--     第三行      -->
+      <view class='hang'>
+        <view class='tour'>导游：{{user.tourName}}</view>
+      </view>
+       <!--     第五行      -->
+      <view class='hang'>
+        <view class='userName'>入住人：{{user.userName}}</view>
+        <view class='sex'>性别：{{user.userSex}}</view>
+      </view>
+       <!--     第六行      -->
+      <view class='hang'>
+        <view class='cord'>身份证号：{{user.userCode}}</view>
+      </view>
+      <view class='geceng'></view>
+    </view> 
+    <!-- <view style='background-color: rgb(208, 230, 114);'>
     <text  decode="{{true}}" >入住日期：{{user.inDate}}--{{user.outDate}}</text>
     <text  decode="{{true}}" >  入住团队：{{user.teamName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;导游：{{user.tourName}}</text>
     <text  decode="{{true}}" >  入住房间：{{user.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房间号：{{user.roomNum}}</text>
@@ -10,7 +40,7 @@
    <text  decode="{{true}}" > 身份证号：{{user.userCode}}
     </text>
     </view>
-    <view style='background-color: rgb(238, 226, 226);height: 2px;'></view>
+    <view style='background-color: rgb(238, 226, 226);height: 2px;'></view> -->
   <!--
     <view style="padding:15rpx 30rpx">
     <text decode="{{true}}">
@@ -19,5 +49,5 @@
     </view>
     -->
   </block>
-</view>
+
 

@@ -53,6 +53,15 @@ Page({
  
   //设置跳转
   setAssemble: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
     if (app.globalData.userType == 1 && app.globalData.userState == 1) {
       wx.navigateTo({
         url: '../assembleSet/assembleSet',
@@ -147,9 +156,11 @@ Page({
     })
   },
   noAssembleUserBtn: function (e) {
-    wx.navigateTo({
-      url: '../noAssembleUser/noAssembleUser',
-    })
+    if (this.data.assembleUser > 0) {
+      wx.navigateTo({
+        url: '../noAssembleUser/noAssembleUser',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

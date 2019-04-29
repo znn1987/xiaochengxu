@@ -29,7 +29,8 @@ Page({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (options.scene) {
           let scene = decodeURIComponent(options.scene);
-         
+
+          //不管有没有授权，都要将队员添加进队伍
           //发起网络请求
           wx.request({
             url: app.globalData.url + '/user/add',
@@ -48,6 +49,7 @@ Page({
                 app.globalData.userType = result.data.userType,
                 app.globalData.userState = result.data.userState,
                 app.globalData.hasUserInfo = true,
+
                 //发起网络请求
                 wx.request({
                   url: app.globalData.url + '/teamUser/addTeamUserByEr',
@@ -60,7 +62,7 @@ Page({
                     teamCode: scene
                   },
                   success: function (result) {
-                    if (!result.data.success){
+                    if (!result.data.success) {
                       wx.showToast({
                         title: result.data.msg,
                         icon: 'none',
@@ -72,10 +74,29 @@ Page({
                 })
             }
           })
-
+          
           //扫码成功后，跳转进入小程序授权页面
-          wx.switchTab({
-            url: '/pages/user/user'
+          // 查看是否授权
+          wx.getSetting({
+            success: function (res) {
+              console.log('查看授权')
+              console.log(res)
+              if (res.authSetting['scope.userInfo']) {
+                wx.getUserInfo({
+                  success: function () {
+                    //用户已经授权过
+                    wx.switchTab({
+                      url: '/pages/team/team'
+                    })
+                  }
+                });
+              }else{
+                //没有授权进去授权页面
+                wx.navigateTo({
+                  url: '../authorization/authorization',
+                })
+              }
+            }
           })
         }
       }

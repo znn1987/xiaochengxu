@@ -4,16 +4,18 @@
 <label>集合日期：</label>
   <view class="section"  >
     <picker mode="date" value="{{assembleDate}}" start="2019-01-01" end="2099-12-31" bindchange="bindAssembleDateChange">
-    {{assembleDate}}
+    {{assembleDate}}<image class="tubiao" bindchange="bindAssembleDateChange" src ='../images/under.png'></image>
   </picker>
+  
   </view>
 </view>
 <view  style="display:flex;padding:15rpx 30rpx;">
 <label>集合时间：</label>
   <view class="section"  >
     <picker mode="time" value="{{assembleTime}}" start="00:00" end="23:59" bindchange="bindAssembleTimeChange">
-    {{assembleTime}}
+    {{assembleTime}}<image class="tubiao" bindchange="bindAssembleTimeChange" src ='../images/under.png'></image>
   </picker>
+  
   </view>
  
 </view>
@@ -29,7 +31,7 @@
 <view class="" style='display:flex;padding:10rpx 30rpx'>
   <form bindsubmit="uploadImg">
     <label bindtap="photoBtn">点击选择图片</label>
-    <canvas style='width:{{canvas_w}}px;height:{{canvas_h}}px'  canvas-id="myCanvas"></canvas>
+    <canvas style='width:{{canvas_w}}px;height:{{canvas_h}}px;border:1px solid #B9B6B6' bindtap="photoBtn" canvas-id="myCanvas"><image class="addImg"  src ='../images/add.jpg'></image></canvas>
     <!--
     <image mode="widthFix" src="{{photos}}"></image>
     -->

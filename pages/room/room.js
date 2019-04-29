@@ -41,7 +41,22 @@ Page({
       return
     }
     wx.navigateTo({
-      url: '../tourQueryRooms/tourQueryRooms',
+      url: '../tourQueryRooms/tourQueryRooms?inDate=' + this.data.dateStart + '&outDate=' + this.data.dateEnd,
+    })
+  },
+  //自定义在线分房--填写需要的房间数目及类型
+  needRoomByTour: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
+    wx.navigateTo({
+      url: '../addHotelFromDY/addHotelFromDY',
     })
   },
   //在线分房--填写需要的房间数目及类型

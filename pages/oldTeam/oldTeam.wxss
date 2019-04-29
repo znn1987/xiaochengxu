@@ -25,3 +25,11 @@ margin:20rpx 2rpx;
   color: white;
   
 }
+.tubiao{
+  float:right;
+  width: 35rpx;
+  height: 21rpx;
+  position: relative;
+  left: 20rpx;
+  top: 19rpx;
+}

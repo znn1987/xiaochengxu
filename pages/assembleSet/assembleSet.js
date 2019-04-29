@@ -330,11 +330,8 @@ Page({
       },
       success: function (res) {
         if(res.data.success){
-          wx.showToast({
-            title: '可以上传集合地点附近照片（非必填）',
-            icon: 'none',
-            duration: 2000,
-            mask: false
+          wx.navigateTo({
+            url: '../assembleSet/assembleSet',
           })
         }
        

@@ -1,8 +1,9 @@
 /* pages/needRoom/needRoom.wxss */
 .section{
-   background:rgb(73, 227, 196);
+  
    margin:20rpx;
-   padding:20rpx
+   padding:20rpx;
+  font-family: Georgia, 'Times New Roman', Times, serif
 }
 
 .btn2 {
@@ -11,4 +12,12 @@
   background-color: rgb(73, 227, 196);
   color: white;
   
+}
+.tubiao{
+  float:right;
+  width: 35rpx;
+  height: 21rpx;
+  position: relative;
+  left: 20rpx;
+  top: 19rpx;
 }

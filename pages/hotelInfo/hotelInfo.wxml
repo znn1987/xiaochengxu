@@ -16,7 +16,9 @@
 <!--
 <button bindtap="saveHotel"> 保存 </button>
 -->
-<view  style="display:flex;">
+
+<view  style="display:flex;margin-left:20rpx;">
+  <view class='time'>选择时间:</view>
   <view class="section"  >
     <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
     {{dateStart}}
@@ -28,14 +30,16 @@
     {{dateEnd}}
   </picker>
   </view>
-  <image bindtap="queryTeam" class="queryBtn" src ='../images/query.jpg'>  </image>
+ 
 </view>
-<button bindtap='queryRoomDetail' data-text='{{data.inDate}},{{data.outDate}}' >查询详细</button>
+<button bindtap='queryTeam'>查询</button>
+<button bindtap='queryRoomDetail' data-text='{{data.inDate}},{{data.outDate}}' >详细</button>
+
 <block wx:for="{{datas}}" wx:key="idx" wx:for-item="data" wx:for-index="idx">
 <view style="padding:15rpx 30rpx">入住时间：{{data.inDate}}--{{data.outDate}}
   <text decode="{{true}}">
   {{data.teamName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.typeName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.sum}}间
   </text>
-  <button bindtap='saveRoomNum' data-text='{{data.teamCode}},{{data.type}},{{data.sum}},{{data.inDate}},{{data.outDate}}' >分配房间</button>
+  <button bindtap='saveRoomNum' data-text='{{data.teamCode}},{{data.type}},{{data.sum}},{{data.inDate}},{{data.outDate}}' >分配房间{{data.isAssign==1?'（已分配）':'（未分配）'}}</button>
 </view>
 </block>

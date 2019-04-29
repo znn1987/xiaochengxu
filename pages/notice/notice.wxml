@@ -1,25 +1,27 @@
 <!--pages/notice/notice.wxml-->
 
 <view style="padding:30rpx">
-<button bindtap="newNotice">新增</button>
+<button class="btn3" bindtap="newNotice">新增</button>
 </view>
 <view style="display:flex;padding:30rpx">
 <label>编号：</label>
-<input style="border-style: solid;width: 50%" type="number" maxlength="12" value="{{code}}" name="title" bindinput ="codeInput"></input>
-<button bindtap="queryNotice">查询</button>
+<input style="border:1px solid #B9B6B6;width: 50%;height:56rpx;text-align:center" type="number" maxlength="12" value="{{code}}" name="title" bindinput ="codeInput"></input>
+<view class='buttenType' bindtap="queryNotice">
+  查询
+</view>
 </view>
 
 <view style="padding:30rpx">
 <label>标题：</label>
-<input style="border-style: solid;" maxlength="12" value="{{title}}" name="title" bindinput ="titleInput"></input>
+<input readonly="readonly" style="border:1px solid #B9B6B6;text-align:center" maxlength="12" value="{{title}}" name="title" bindinput ="titleInput"></input>
 </view>
 <view style="padding:30rpx">
 <label>内容：</label>
-<textarea style="border-style: solid;" maxlength="100" value="{{notice}}" name="notice" bindinput ="noticeInput"></textarea>
+<textarea readonly="readonly" style="border:1px solid #B9B6B6;padding-left:20rpx;padding-top:20rpx;" maxlength="100" value="{{notice}}" name="notice" bindinput ="noticeInput"></textarea>
 </view>
 
 <view style="display:flex;">
-<button bindtap="delNotice">删除</button>
-<button bindtap="updateNotice">修改</button>
+<button class="btn1" bindtap="delNotice">删除</button>
+<button class="btn2" bindtap="updateNotice">修改</button>
 </view>
 

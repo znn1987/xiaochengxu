@@ -6,7 +6,9 @@
 <view style="display:flex;">
 <label>标题：</label><text bindtap='newNotice' data-text='{{notice.code}}'>{{notice.title}}</text>
 </view>
-<view>
+
+<view style="display:flex;">
+<text bindtap='newNotice' data-text='{{notice.code}}'>{{notice.isRead==0?'未读':'已读'}}</text>
 <image style="float:right;height: 50rpx;width: 50rpx;" bindtap='newNotice' data-text='{{notice.code}}' src ='../images/right.png'></image>
 </view>
 </view>

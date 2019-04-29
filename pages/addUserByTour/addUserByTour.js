@@ -93,7 +93,7 @@ Page({
         userName: this.data.userCodeName,
         userSex: this.data.userSex,
         userAge: this.data.userAge,
-        userCode: this.data.userName,
+        userCode: this.data.userCode,
         phone: this.data.userPhone,
         teamCode: app.globalData.teamCode,
         userType: this.data.userType,

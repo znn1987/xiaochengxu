@@ -18,14 +18,14 @@
 <view class="section">
   <view class="section__title"  style="display:flex;">入住日期：
     <picker mode="date" value="{{dateStart}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateStartChange">
-    {{dateStart}}
+    {{dateStart}}<image class="tubiao" bindchange="bindDateStartChange" src ='../images/under.png'></image>
   </picker>
   </view>
 </view>
 <view class="section">
   <view class="section__title"  style="display:flex;">退房日期：
     <picker mode="date" value="{{dateEnd}}" start="2019-01-01" end="2099-12-31" bindchange="bindDateEndChange">
-    {{dateEnd}}
+    {{dateEnd}}<image class="tubiao" bindchange="bindDateEndChange" src ='../images/under.png'></image>
   </picker>
   </view>
 </view>

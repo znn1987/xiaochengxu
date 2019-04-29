@@ -1,1 +1,53 @@
 /* pages/queryRoomDetail/queryRoomDetail.wxss */
+.hang{
+  height: 74rpx;
+  padding-top: 13rpx;
+  padding-left: 10rpx;
+  border: 1px solid #B9B6B6;
+}
+.waibu{
+  width: 90%;
+  border: 1px solid #B9B6B6;
+  margin-left: 4%;
+  margin-top: 30rpx;
+}
+.datelable{
+   width: 191rpx;
+   /* border:1px solid burlywood; */
+}
+.dateTime{
+  width:420rpx;
+  /* border: 1px solid yellow; */
+  position: relative;
+  top: -43rpx;
+  left: 195rpx;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+.roomNumber{
+  width: 245rpx;
+  /* border:1px solid burlywood; */
+}
+.roomType{
+  width: 318rpx;
+  /* border:1px solid burlywood; */
+  position: relative;
+  top: -43rpx;
+  left: 301rpx;
+}
+.userName{
+width: 245rpx;
+}
+.sex{
+  width: 245rpx;
+  /* border:1px solid burlywood; */
+  position: relative;
+  top: -43rpx;
+  left: 301rpx;
+}
+.geceng{
+  width: 100%;
+  height: 19rpx;
+  border:1px solid  #B9B6B6;
+  background-color: #B9B6B6; 
+}

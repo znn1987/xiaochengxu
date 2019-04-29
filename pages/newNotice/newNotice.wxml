@@ -1,9 +1,31 @@
 <!--pages/newNotice/newNotice.wxml-->
 
-<view style="display:flex;padding:30rpx 30rpx;">
-<label>标题：</label><text>{{title}}</text>
+<!-- <view style="display:flex;padding:30rpx 30rpx;">
+  <label>标题：</label><text>{{title}}</text>
 </view>
 <view style="padding:30rpx">
-<label>内容：</label>
-<textarea>{{notice}}</textarea>
+  <label>内容：</label>
 </view>
+<view class='contentStyle'>
+  <view>{{notice}}</view>
+</view> -->
+<view class='all'>
+  <view class='topTitle'>
+    <view class='typ'> 【公告须知】</view>
+    <view class='titleContent'>
+      {{title}}
+    </view>
+  </view>
+  <view class='geceng'>
+    
+  </view>
+  <scroll-view scroll-y class='content'>
+    <view class='timu'>
+        请仔细阅读本公告
+    </view>
+    <view class='text'>
+      <text class='aa'>{{notice}}</text>
+    </view>
+  </scroll-view>
+</view>
+

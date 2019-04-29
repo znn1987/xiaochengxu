@@ -1,9 +1,11 @@
 /* pages/room/room.wxss */
 .section{
-   background:rgb(73, 227, 196);
+   font-family: Georgia, 'Times New Roman', Times, serif;
    margin:20rpx;
    padding:20rpx;
-   width: 30%
+   padding-left:50rpx; 
+   width: 40%;
+   border: 1px solid #B9B6B6;
 }
 
 .queryBtn{
@@ -13,6 +15,13 @@ margin:20rpx 2rpx;
 }
 .btn2 {
   width: 90%;
+  margin-top: 20rpx;
+  background-color: rgb(73, 227, 196);
+  color: white;
+  
+}
+.btn4 {
+  width: 40%;
   margin-top: 20rpx;
   background-color: rgb(73, 227, 196);
   color: white;

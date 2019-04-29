@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    captchaImage: "../images/image.png"
+    captchaImage: "../images/image.png",
+    userCodeSta:true,
   },
   //获取用户输入的团队名称
   teamNameInput: function (e) {
@@ -70,7 +71,7 @@ Page({
     var that = this
     wx.showModal({
       title: '提示',
-      content: '删除队伍会将关于本队伍的所有信息全部删除，确定要删除队伍吗？',
+      content: '确定要删除队伍吗？',
       success: function (sm) {
 
         if (sm.confirm) {

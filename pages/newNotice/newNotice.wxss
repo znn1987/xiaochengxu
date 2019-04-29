@@ -1,1 +1,44 @@
 /* pages/newNotice/newNotice.wxss */
+
+
+.topTitle{
+  width: 90%;
+  height: 100rpx;
+ 
+  margin-left:4%; 
+  margin-top: 30rpx;
+  padding-top: 33rpx;
+}
+.typ{
+  width: 40%; 
+}
+.titleContent{
+  width: 400rpx;
+  position: relative;
+  top: -47rpx;
+  left: 272rpx;
+}
+.geceng{
+   width: 100%;
+   border: 1px solid burlywood
+}
+.content{
+  width: 90%;
+  height: 800rpx;
+  border: 1px solid burlywood;
+  margin-top:33rpx;
+  margin-left: 4%; 
+   padding-top: 10rpx;
+   padding-left: 10rpx;
+}
+.timu{
+   width: 100%;
+  
+}
+.text{
+  padding-top:20rpx;
+  padding-left: 10rpx; 
+}
+.aa{
+  word-break:break-all
+}

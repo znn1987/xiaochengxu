@@ -7,6 +7,15 @@ Page({
   },
   onLoad: function () {
     var that = this;
+    if (!wx.canIUse('button.open-type.getUserInfo')){
+      wx.showToast({
+        title: '微信版本太低，请升级后重新打开！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return 
+    }
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -20,16 +29,18 @@ Page({
     wx.getSetting({
       success: function (res) {
         console.log('查看授权')
-        console.log(res)
+        console.log(wx.canIUse('button.open-type.getUserInfo'))
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function () {
               //从数据库获取用户信息
               that.queryUsreInfo();
               //用户已经授权过
+              setTimeout(function () {
               wx.switchTab({
                 url: '/pages/team/team'
               })
+              }, 500)
             }
           });
         }

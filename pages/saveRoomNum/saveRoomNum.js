@@ -12,7 +12,7 @@ Page({
   roomNumInput: function (e) {
     var that = this
     that.setData({
-      rooms: e.detail.value
+      roomNum: e.detail.value
     })
   },
   //返回
@@ -25,9 +25,12 @@ Page({
   //保存个人信息
   saveRooms: function (e) {
     if ( this.data.roomSum == 0){
+      wx.navigateBack({
 
+      })
+      return
     }else{
-      if (this.data.rooms == "" || this.data.tourCode == "" ) {
+      if (this.data.roomNum == "" || this.data.tourCode == "" ) {
         wx.showToast({
           title: '房间号码不能为空！！',
           icon: 'none',
@@ -36,9 +39,14 @@ Page({
         })
         return
       }
-      var list = this.data.rooms.split(",");
-      if (list.length != this.data.roomSum) {
-        list = this.data.rooms.split("，");
+      
+      var list = []
+      if (this.data.roomNum.indexOf(",")!=-1){
+       list = this.data.roomNum.split(",");
+      } else if (this.data.roomNum.indexOf("，") != -1){
+        list = this.data.roomNum.split("，");
+      }else{
+        list[0] = this.data.roomNum
       }
       if (list.length != this.data.roomSum){
         wx.showToast({
@@ -68,7 +76,7 @@ Page({
         hotelPhone: this.data.hotelPhone,
         teamCode: this.data.teamCode,
         roomType: this.data.roomType,
-        rooms: this.data.rooms,
+        rooms: this.data.roomNum,
         inDate: this.data.inDate,
         outDate: this.data.outDate
       },
@@ -138,7 +146,6 @@ Page({
       },
       success: function (res) {
         that.setData({
-          teamName: res.data.teamName,
           userCodeName: res.data.userCodeName,
           travel: res.data.travel,
           roomTypeName: res.data.typeName

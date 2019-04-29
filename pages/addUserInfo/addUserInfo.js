@@ -87,24 +87,25 @@ Page({
     // for (let k of Object.keys(JSON.parse(js))) {
     //   map.set(k, JSON.parse(js)[k]);
     // }
-    if (this.data.userType == 1 && (this.data.tourTravel == "" || this.data.tourCode == "")){
+    if (this.data.userType == 1 && (this.data.tourTravel == "" || this.data.tourCode == "" || this.data.userCode == "" || this.data.userPhone=="")){
       wx.showToast({
-        title: '导游用户：旅行社与导游证号必填',
+        title: '导游用户：旅行社、导游证号、手机号、身份证号必填',
         icon: 'none',
         duration: 2000,
         mask: false
       })
       return
     }
-    if (this.data.userType == 2 && ((this.data.userPhone == "") || (this.data.hotelName == ""))) {
+    else if (this.data.userType == 2 && (this.data.userPhone == "" || this.data.hotelName == "" || this.data.hotelName == undefined || this.data.hotelDress==undefined)) {
       wx.showToast({
-        title: '宾馆用户：电话号码（订房电话）、宾馆名称必填',
+        title: '宾馆用户：电话号码（订房电话）、宾馆名称、地址必填',
         icon: 'none',
         duration: 2000,
         mask: false
       })
       return
     }
+    console.log("宾馆："+this.data.hotelName)
     wx.request({
       url: app.globalData.url +'/user/update',
       data: {

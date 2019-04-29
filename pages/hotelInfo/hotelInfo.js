@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    count: 0
   },
   //获取用户输入的名称
   hotelNameInput: function (e) {
@@ -176,7 +176,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (this.data.count != 0) {
+      var that = this
+    
+      that.queryTeam("show")
+    }
+    this.setData({
+      count: 1
+    })
   },
 
   /**

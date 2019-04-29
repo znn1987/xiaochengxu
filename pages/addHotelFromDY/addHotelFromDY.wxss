@@ -1,0 +1,118 @@
+.pacge{
+  width: 100%;
+  height: 100%;
+  overflow-x:hidden;
+}
+.title{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border: 1px solid #B9B6B6;
+  font-family: Georgia, 'Times New Roman', Times, serif
+}
+.top_Title{
+  padding-top:20rpx; 
+  padding-left: 40rpx;
+  border: 1px solid #B9B6B6;
+  height: 75rpx;
+  font-family: Georgia, 'Times New Roman', Times, serif
+}
+.key{
+  width: 190rpx;  
+   
+}
+.value{
+  width: 400rpx; 
+  position: relative;
+  left: 220rpx;
+  top: -46rpx;
+ 
+}
+.text_value{
+  width: 380rpx; 
+  padding-left: 10rpx;
+}
+.geceng{
+  width: 100%;
+  height:30rpx;
+  margin-top:20rpx; 
+  background-color:  #B9B6B6;
+}
+.room_type{
+  width: 190rpx;  
+}
+.type_name{
+  font-size: 30rpx;
+  width: 200rpx;
+  position: relative;
+  left: 200rpx;
+  top: -37rpx;
+}
+.room_contain {
+  padding-top:20rpx; 
+  padding-left: 40rpx;
+  border: 1px solid #B9B6B6;
+  height: 165rpx;
+  font-family: Georgia, 'Times New Roman', Times, serif
+}
+.roon_number{
+   width: 445rpx;
+   position: relative;
+   left: 200rpx;
+   top: -53rpx;
+}
+.buttonStyle{
+  width: 255rpx;
+  font-size: 29rpx;
+  
+}
+.button_save{
+  width:300rpx;
+  padding-top:50rpx; 
+  padding-left: 122rpx;
+}
+.cancel{
+  position: relative;
+  left: -70rpx;
+}
+.save{
+   width:300rpx;
+  position: relative;
+  left: 242rpx;
+  top: -69rpx;
+ 
+}
+.butSave{
+   background-color:rgb(26, 188, 156);
+}
+.butCancel{
+  border: 1px solid red;
+  color: red;
+}
+.queryBut{
+  width: 90%;
+  
+  background-color: rgb(73, 227, 196);
+  color: white;
+  position: relative;
+  top: 11rpx;
+
+}
+.Time_pick{
+  width:200rpx;
+  height:50rpx;
+  position:relative;
+  left:220rpx;
+  top:-43rpx;
+}
+.Time_pick2{
+  width:200rpx;
+  height:50rpx;
+  position:relative;
+  left:490rpx;
+  top:-135rpx;
+}
+.ciacle{
+  position:relative;
+  left:440rpx;
+  top:-90rpx;
+}

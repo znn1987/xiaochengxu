@@ -58,17 +58,87 @@ Page({
     }
 
   },
+  //在线分房--房间号码查看
+  roomOnLine: function (e) {
+    var text = e.currentTarget.dataset.text
+    var list = text.split(",");
+    var i = 0;
+    var hotelPhone = "";
+    var roomType = "";
+    var roomTypeName = "";
+    var roomNum = "";
+    for (i; i < list.length; i++) {
+      hotelPhone = list[0];
+      roomType = list[1];
+      roomTypeName = list[2];
+      roomNum = list[3];
+    }
+
+    wx.navigateTo({
+      url: '../roomOnLine/roomOnLine?hotelPhone=' + hotelPhone + '&roomType=' + roomType + '&roomTypeName=' + roomTypeName + '&roomNum=' + roomNum + '&inDate=' + this.data.inDate + '&outDate=' + this.data.outDate
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     // 调用函数时，传入new Date()参数，返回值是日期和时间
-    var time = util.formatTime(new Date());
+    // var time = util.formatTime(new Date());
     // 再通过setData更改Page()里面的data，动态更新页面的数据
-    this.setData({
-      dateStart: time,
-      dateEnd: time
-    });
+    // this.setData({
+    //   dateStart: time,
+    //   dateEnd: time
+    // });
+    var that = this
+    if (options.inDate != undefined) {
+      that.setData({
+        inDate: options.inDate
+      })
+    }
+    if (options.outDate != undefined) {
+      that.setData({
+        outDate: options.outDate
+      })
+    }
+
+    
+    //查询酒店分配房间
+    wx.request({
+      url: app.globalData.url + '/room/queryRoomsNum',
+      data: {
+        teamCode: app.globalData.teamCode,
+        inDate: options.inDate,
+        outDate: options.outDate
+      },
+      method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.length>0){
+          that.setData({
+            rooms: res.data
+          })
+        }else{
+          wx.navigateBack({
+
+          })
+          setTimeout(function () {
+            wx.showToast({
+              title: '暂无房间，请联系宾馆分房或自定义分房！！！',
+              icon: 'none',
+              duration: 2000,
+              mask: false
+            })
+          }, 1000)
+        }
+        
+      },
+      fail: function (res) {
+        console.log("--------fail--------");
+      }
+    })
   },
 
   /**

@@ -1,6 +1,7 @@
 {
-  "pages":[
-    
+  "pages": [
+       
+        
     "pages/authorization/authorization",
     "pages/team/team",
     "pages/newNotice/newNotice",
@@ -23,6 +24,7 @@
     "pages/queryRoom/queryRoom",
     "pages/roomOnLine/roomOnLine",
     "pages/needRoom/needRoom",
+    "pages/addHotelFromDY/addHotelFromDY",    
     "pages/tourQueryRooms/tourQueryRooms",
     "pages/user/user",
     "pages/addUserInfo/addUserInfo",
@@ -35,11 +37,11 @@
     "pages/logs/logs",
     "pages/index/index"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#1ABC9C",
     "navigationBarTitleText": "优乐游平台",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "permission": {
     "scope.userLocation": {
@@ -47,20 +49,18 @@
     }
   },
   "tabBar": {
-    "color": "#AEAEAE", 
-    "selectedColor": "#59CC59", 
-    "backgroundColor": "#FFFFFF", 
-    "borderStyle": "black", 
+    "color": "#AEAEAE",
+    "selectedColor": "#59CC59",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
     "position": "bottom",
     "list": [
-     
       {
         "pagePath": "pages/team/team",
         "text": "团队",
         "iconPath": "pages/images/service.png",
         "selectedIconPath": "pages/images/serviceall.png"
       },
-     
       {
         "pagePath": "pages/user/user",
         "text": "用户",
@@ -68,6 +68,6 @@
         "selectedIconPath": "pages/images/userall.png"
       }
     ]
-
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

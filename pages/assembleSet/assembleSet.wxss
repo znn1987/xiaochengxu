@@ -29,5 +29,20 @@
   margin-top: 20rpx;
   background-color: rgb(73, 227, 196);
   color: white;
-  
+}
+.tubiao{
+  float:right;
+  width: 35rpx;
+  height: 21rpx;
+  position: relative;
+  left: 20rpx;
+  top: 19rpx;
+}
+.addImg{
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  top: 124rpx;
+  left: 305rpx;
+
 }

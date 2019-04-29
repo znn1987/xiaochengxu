@@ -30,7 +30,7 @@
 <label>团队总人数：</label>{{allUser}}人  
 </view>
 <view  style="display:flex;padding:2rpx 30rpx " >
-<label>未签到人数（不含队长）：</label><text bindtap="noAssembleUserBtn">{{assembleUser}}人</text>
+<label>未签到人数（不含队长）：</label><text bindtap="noAssembleUserBtn">{{assembleUser}}人{{assembleUser>0?'(查看)':''}}</text>
 </view>
 </view>
 <block wx:for="{{users}}" wx:key="idx" wx:for-item="user" wx:for-index="idx">
