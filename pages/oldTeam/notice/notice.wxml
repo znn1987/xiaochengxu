@@ -1,0 +1,27 @@
+<!--pages/notice/notice.wxml-->
+
+<view style="padding:30rpx">
+<button class="btn3" bindtap="newNotice">新增</button>
+</view>
+<view style="display:flex;padding:30rpx">
+<label>编号：</label>
+<input style="border:1px solid #B9B6B6;width: 50%;height:56rpx;text-align:center" type="number" maxlength="12" value="{{code}}" name="title" bindinput ="codeInput"></input>
+<view class='buttenType' bindtap="queryNotice">
+  查询
+</view>
+</view>
+
+<view style="padding:30rpx">
+<label>标题：</label>
+<input readonly="readonly" style="border:1px solid #B9B6B6;text-align:center" maxlength="12" value="{{title}}" name="title" bindinput ="titleInput"></input>
+</view>
+<view style="padding:30rpx">
+<label>内容：</label>
+<textarea readonly="readonly" style="border:1px solid #B9B6B6;padding-left:20rpx;padding-top:20rpx;" maxlength="100" value="{{notice}}" name="notice" bindinput ="noticeInput"></textarea>
+</view>
+
+<view style="display:flex;">
+<button class="btn1" bindtap="delNotice">删除</button>
+<button class="btn2" bindtap="updateNotice">修改</button>
+</view>
+

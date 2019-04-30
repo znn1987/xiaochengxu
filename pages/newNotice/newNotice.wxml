@@ -9,8 +9,9 @@
 <view class='contentStyle'>
   <view>{{notice}}</view>
 </view> -->
+<view style='background-color: rgb(238, 226, 226);'>
 <view class='all'>
-  <view class='topTitle'>
+  <view class='topTitle' style='padding-top: 33rpx;'>
     <view class='typ'> 【公告须知】</view>
     <view class='titleContent'>
       {{title}}
@@ -28,4 +29,6 @@
     </view>
   </scroll-view>
 </view>
-
+<view style="height:100px;">
+</view>
+</view>

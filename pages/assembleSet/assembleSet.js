@@ -313,33 +313,57 @@ Page({
       })
       return
     }
+
+    //发起网络请求判断当前队伍是否为自己创建的队伍
     wx.request({
-      url: app.globalData.url + '/teamAssemble/add',
-      data: {
-        teamCode: app.globalData.teamCode,
-        userWxId: app.globalData.userWxId,
-        assembleDate: this.data.assembleDate,
-        assembleTime: this.data.assembleTime,
-        assembleDress: this.data.assembleDress,
-        longitude: this.data.newCurrentLo,
-        latitude: this.data.newCurrentLa,
-      },
-      method: 'post',
+      url: app.globalData.url + '/team/queryIsMyTeam',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        "content-type": "application/x-www-form-urlencoded"
       },
-      success: function (res) {
-        if(res.data.success){
-          wx.navigateTo({
-            url: '../assembleSet/assembleSet',
+      method: "POST",
+      data: {
+        userWxId: app.globalData.userWxId,
+        teamCode: app.globalData.teamCode
+      },
+      success: function (result) {
+        console.log('result')
+        console.log(result)
+        if (result.data.success) {
+          wx.request({
+            url: app.globalData.url + '/teamAssemble/add',
+            data: {
+              teamCode: app.globalData.teamCode,
+              userWxId: app.globalData.userWxId,
+              assembleDate: this.data.assembleDate,
+              assembleTime: this.data.assembleTime,
+              assembleDress: this.data.assembleDress,
+              longitude: this.data.newCurrentLo,
+              latitude: this.data.newCurrentLa,
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+
+            },
+            fail: function (res) {
+              console.log("--------fail--------");
+            }
           })
-        }
-       
-      },
-      fail: function (res) {
-        console.log("--------fail--------");
-      }
+        } else {
+          wx.showToast({
+            title: '当前已加入他人队伍，不允许设置集合！！！！！',
+            icon: 'none',
+            duration: 2000,
+            mask: false
+          })
+
+         }
+       }
     })
+
+   
   },
   /**
    * 生命周期函数--监听页面加载

@@ -65,17 +65,65 @@
 <!--导游显示按钮-->
 <view class="{{userType == 1?'show':'hide'}}" style='background-color: rgb(242, 242, 242);height: 250px;'>
 <view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
-  <button class = 'btn' bindtap='userBtn'> 队员 </button>
-  <button class = 'btn' bindtap='room'> 分房 </button>
-  <button class = 'btn' bindtap='queryRoom'> 查房 </button>
-  <button class = 'btn' bindtap='assemble'> 集合 </button>
+<!-- **********************************************更新区域1**********************  -->
+<!-- *******************************************更新内容1************   -->
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='userBtn' src='../images/cion/user.png'></image>
+  </view>
+ 
+  <view class = 'btnImg' >
+    <image style="width:85%;height:85%" bindtap='room' src='../images/cion/tour2.png'></image>
+  </view>
+  <view class = 'btnImg' >
+    <image style="width:90%;height:90%;margin-left:-8rpx;" bindtap='queryRoom' src='../images/cion/room.png'></image>
+  </view>
+  <view class = 'btnImg' >
+    <image style="width:90%;height:90%" bindtap='assemble' src='../images/cion/ass.png'></image>
+  </view>
+  <!-- *******************************************更新内容************   -->
+  <!-- <button class = 'btn' bindtap='userBtn'> 队员 </button> -->
+  <!-- <button class = 'btn' bindtap='room'> 分房 </button> -->
+  <!-- <button class = 'btn' bindtap='queryRoom'> 查房 </button> -->
+  <!-- <button class = 'btn' bindtap='assemble'> 集合 </button> -->
+  
 </view>
+<!-- *******************************************更新内容2************   -->
+<view style='width:100%;margin-left:95rpx;margin-top:-56rpx;'>
+    <view class='butCont' bindtap='userBtn'>队员</view>
+    <view class='butCont' bindtap='room'>分房</view>
+    <view class='butCont' bindtap='queryRoom'>查房</view>
+    <view class='butCont' bindtap='assemble'>集合</view>
+</view>
+<!-- *******************************************更新内容************   -->
 <view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
-  <button class = 'btn' bindtap='signTeam'> 签到 </button>
+<!-- *******************************************更新内容3************   -->
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='signTeam' src='../images/cion/sign.png'></image>
+  </view>
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='noticeSet' src='../images/cion/tour5.png'></image>
+  </view>
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='oldTeam' src='../images/cion/tour7.png'></image>
+  </view>
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='more' src='../images/cion/more.png'></image>
+  </view>
+  <!-- *******************************************更新内容************   -->
+  <!-- <button class = 'btn' bindtap='signTeam'> 签到 </button>
   <button class = 'btn' bindtap='noticeSet'> 公告 </button>
   <button class = 'btn' bindtap='oldTeam'> 成就 </button>
-  <button class = 'btn' bindtap='more'> …… </button>
+  <button class = 'btn' bindtap='more'> …… </button> -->
 </view>
+<!-- *******************************************更新内容4************   -->
+<view style='width:100%;margin-left:95rpx;margin-top:-56rpx;'>
+    <view class='butCont' bindtap='signTeam'>签到</view>
+    <view class='butCont' bindtap='noticeSet'>公告</view>
+    <view class='butCont' bindtap='oldTeam'>成就</view>
+    <view class='butCont' bindtap='more'>更多</view>
+</view>
+<!-- *******************************************更新内容************   -->
+<!-- **********************************************更新区域**********************  -->
 </view>
 
 <!--
@@ -92,17 +140,83 @@
 <!--游客显示按钮-->
 <view class="{{userType == 1?'hide':'show'}}" style='background-color: rgb(242, 242, 242);height: 250px;'>
   <view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
-    <button class = 'btn' bindtap='signTeam'> 签到 </button>
+  <!-- **********************************************更新区域**********************  -->
+    <!-- **********************************************更新内容**********************  -->
+<view class="{{sign == 1?'show':'hide'}}">
+  <view class = 'btnImg' >
+    <image style="width:70%;height:80%" bindtap='signTeam' src='../images/cion/sign.png'></image>
+  </view>
+</view>
+<view class="{{sign != 1?'show':'hide'}}">
+    <view class = 'btnImg' >
+        <image style="width:70%;height:80%" bindtap='signTeam' src='../images/cion/sign2.png'></image>
+    </view>
+  </view>
+  <!-- <button class = 'btn' bindtap='userBtn'> 队员 </button> -->
+ <view class="{{assemble == 0?'show':'hide'}}"> 
+  <view class = 'btnImg' >
+    <image style="width:80%;height:90%" bindtap='assemble' src='../images/cion/ass.png'></image>
+  </view>
+  </view>
+  <view class="{{assemble != 0?'show':'hide'}}"> 
+  <view class = 'btnImg' >
+    <image style="width:80%;height:90%" bindtap='assemble' src='../images/cion/ass2.png'></image>
+  </view>
+  </view>
+  <view class = 'btnImg' >
+    <image style="width:90%;height:90%;margin-left:-8rpx;" bindtap='queryRoom' src='../images/cion/room.png'></image>
+  </view>
+  <view class="{{noticeCode == 0?'show':'hide'}}"> 
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='allNotice' src='../images/cion/tour5.png'></image>
+  </view>
+  </view>
+  <view class="{{noticeCode != 0?'show':'hide'}}"> 
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%;" bindtap='allNotice' src='../images/cion/tour52.png'></image>
+  </view>
+  </view>
+    <!-- <button class = 'btn' bindtap='signTeam'> 签到 </button>
     <button class = 'btn' bindtap='assemble'> 集合 </button>
     <button class = 'btn' bindtap='queryRoom'> 房间 </button>
-    <button class = 'btn' bindtap='allNotice'> 公告 </button>
+    <button class = 'btn' bindtap='allNotice'> 公告 </button> -->
+  </view>
+  <!-- **********************************************更新内容**********************  -->
+  <view style='width:100%;margin-left:95rpx;margin-top:-56rpx;'>
+    <view class='butCont' bindtap='signTeam'>签到</view>
+    <view class='butCont' bindtap='assemble'>集合</view>
+    <view class='butCont' bindtap='queryRoom'>房间</view>
+    <view class='butCont' bindtap='allNotice'>公告</view>
   </view>
   <view  style="padding:30rpx 60rpx;display:flex;align-items: center;justify-content:space-between;">
-    <button class = 'btn' bindtap='oldTeam'> 足迹 </button>
-    <button class = 'btn'bindtap='strategy'> 攻略 </button>
-    <button class = 'btn' bindtap='shop'> 特产 </button>
-    <button class = 'btn' bindtap='more'> 更多 </button>
+  <!-- **********************************************更新内容**********************  -->
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='oldTeam' src='../images/cion/old.png'></image>
   </view>
+  <!-- <button class = 'btn' bindtap='userBtn'> 队员 </button> -->
+  <view class = 'btnImg' >
+    <image style="width:90%;height:80%" bindtap='strategy' src='../images/cion/strategy.png'></image>
+  </view>
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='shop' src='../images/cion/buy.png'></image>
+  </view>
+  <view class = 'btnImg' >
+    <image style="width:80%;height:80%" bindtap='more' src='../images/cion/more.png'></image>
+  </view>
+    <!-- <button class = 'btn' bindtap='oldTeam'> 足迹 </button>
+    <button class = 'btn' bindtap='strategy'> 攻略 </button>
+    <button class = 'btn' bindtap='shop'> 特产 </button>
+    <button class = 'btn' bindtap='more'> 更多 </button> -->
+    
+  </view>
+  <!-- **********************************************更新内容**********************  -->
+  <view style='width:100%;margin-left:95rpx;margin-top:-56rpx;'>
+    <view class='butCont' bindtap='oldTeam'>足迹</view>
+    <view class='butCont' bindtap='strategy'>攻略</view>
+    <view class='butCont' bindtap='shop'>特产</view>
+    <view class='butCont' bindtap='more'>更多</view>
+</view>
+  <!-- **********************************************更新区域**********************  -->
 </view>
 
 

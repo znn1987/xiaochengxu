@@ -8,6 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    sign: 0,
+    assemble: 0,
+    noticeCode: 0,
     teamName: '数据加载中……',
     code: 1,
     address: '',
@@ -106,10 +109,45 @@ Page({
   },
   //队长在线分房--房间号码查看
   room: function (e) {
-    if (app.globalData.userType == 1 && app.globalData.userState == 1) {
-      wx.navigateTo({
-        url: '../room/room',
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍再进行分房！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
       })
+      return
+    }
+    if (app.globalData.userType == 1 && app.globalData.userState == 1) {
+      //发起网络请求判断当前队伍是否为自己创建的队伍
+      wx.request({
+        url: app.globalData.url + '/team/queryIsMyTeam',
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        method: "POST",
+        data: {
+          userWxId: app.globalData.userWxId,
+          teamCode: this.data.code
+        },
+        success: function (result) {
+          console.log(result)
+          if (result.data.success) {
+            wx.navigateTo({
+              url: '../room/room',
+            })
+          } else {
+            wx.showToast({
+              title: '当前已加入他人队伍，不允许设置分房！！！！！',
+              icon: 'none',
+              duration: 2000,
+              mask: false
+            })
+
+          }
+        }
+      })
+     
     } else {
       wx.showToast({
         title: '此次版本只允许注册导游创建队伍！！！！',
@@ -123,32 +161,100 @@ Page({
   },
   //队长房间查看
   queryRoom: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先加入队伍！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
     wx.navigateTo({
       url: '../queryRoom/queryRoom',
     })
   },
   //队长编辑公告
   noticeSet: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍再添加公告！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
+    //发起网络请求判断当前队伍是否为自己创建的队伍
+    wx.request({
+      url: app.globalData.url + '/team/queryIsMyTeam',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      data: {
+        userWxId: app.globalData.userWxId,
+        teamCode: app.globalData.teamCode
+      },
+      success: function (result) {
+        console.log('result')
+        console.log(result)
+        if (result.data.success) {
+            wx.navigateTo({
+              url: '../notice/notice',
+            })
+        } else {
+          wx.navigateTo({
+            url: '../allNotice/allNotice',
+          })
 
-    wx.navigateTo({
-      url: '../notice/notice',
+        }
+      }
     })
+
+ 
   },
   //游客房间查看
   queryRoom: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先加入队伍！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
     wx.navigateTo({
       url: '../queryRoom/queryRoom',
     })
   },
   //游客签到
   signTeam: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先加入队伍！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
     wx.navigateTo({
       url: '../signTeam/signTeam',
     })
   },
   //游客定点集合
   assemble: function (e) {
-
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先加入队伍！！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
     wx.navigateTo({
       url: '../assembleAndInfo/assembleAndInfo',
     })
@@ -225,8 +331,6 @@ Page({
       },
       success: function (res) {
         var code = '';
-
-       
         if (res.data.length > 0) {
           code = res.data[0].tourTeamCode
           app.globalData.teamCode = res.data[0].tourTeamCode
@@ -236,6 +340,32 @@ Page({
             start: res.data[0].tourTeamDate,
             end: res.data[0].tourTeamLoseDate
           })
+
+          if (app.globalData.userType == 1 && app.globalData.userState == 1) {
+            //发起网络请求判断当前队伍是否为自己创建的队伍
+            wx.request({
+              url: app.globalData.url + '/team/queryIsMyTeam',
+              header: {
+                "content-type": "application/x-www-form-urlencoded"
+              },
+              method: "POST",
+              data: {
+                userWxId: app.globalData.userWxId,
+                teamCode: code
+              },
+              success: function (result) {
+                console.log(result)
+                if (result.data.success) {
+                 
+                } else {
+                  
+                }
+              }
+            })
+
+          }
+
+
           wx.request({
             url: app.globalData.url + '/userByTour/signSum',
             data: {
@@ -301,7 +431,48 @@ Page({
               console.log("--------fail--------");
             }
           })
+          //有队伍才能查签到
+          wx.request({
+            url: app.globalData.url + '/teamUser/queryTeamUserByCode',
+            data: {
+              userCode: app.globalData.userWxId,
+              teamCode: code
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+             
+              that.setData({
+                sign: res.data.isSign
+              })
 
+            },
+            fail: function (res) {
+              console.log("--------fail--------");
+            }
+          })
+          //有队伍才能查集合
+          wx.request({
+            url: app.globalData.url + '/teamAssemble/queryByCode',
+            data: {
+              teamCode: code,
+              userWxId: app.globalData.userWxId,
+              userType: app.globalData.userType
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+              if (res.data.assembleDress) {
+                that.setData({
+                  assemble: 1
+                })
+              }
+            }
+          })
         }else{
           if (app.globalData.userType==1){
             that.setData({

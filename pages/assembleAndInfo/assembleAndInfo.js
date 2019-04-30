@@ -177,7 +177,7 @@ Page({
       data: {
         teamCode: app.globalData.teamCode,
         userWxId: app.globalData.userWxId,
-        userType: app.globalData.userTypet
+        userType: app.globalData.userType
       },
       method: 'post',
       header: {

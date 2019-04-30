@@ -6,8 +6,6 @@
   height: 100rpx;
  
   margin-left:4%; 
-  margin-top: 30rpx;
-  padding-top: 33rpx;
 }
 .typ{
   width: 40%; 

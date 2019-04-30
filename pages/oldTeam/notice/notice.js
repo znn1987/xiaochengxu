@@ -6,18 +6,46 @@ Page({
    * 页面的初始数据
    */
   data: {
+    select:false,
     count: 0,
     code: ''
   },
+  //下拉框
+  bindShowMsg:function(){
+    this.setData({
+      select:!this.data.select
+    })
+  },
   //新增公告
   newNotice: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
     wx.navigateTo({
       url: '../noticeSet/noticeSet'
     })
   },
   //删除公告
   delNotice: function (e) {
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
     var that = this
+    if (this.data.code == ''){
+      return
+    }
     if (this.data.code > this.data.oldCode || this.data.code == 0) {
       wx.showToast({
         title: '没有当前输入编号的公告！！！',
@@ -30,33 +58,55 @@ Page({
       })
       return
     }
-    wx.request({
-      url: app.globalData.url + '/notice/delNotice',
-      data: {
-        code: this.data.code,
-        teamCode: app.globalData.teamCode
-      },
-      method: 'post',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        console.log(res)
-        wx.navigateBack({
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success: function (sm) {
 
-        })
+        if (sm.confirm) {
+          wx.request({
+            url: app.globalData.url + '/notice/delNotice',
+            data: {
+              code: this.data.code,
+              teamCode: app.globalData.teamCode
+            },
+            method: 'post',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+              console.log(res)
+              wx.navigateBack({
 
-      },
-      fail: function (res) {
-        console.log("--------fail--------");
+              })
+
+            },
+            fail: function (res) {
+              console.log("--------fail--------");
+            }
+          })
+        } else if (sm.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
   },
   //修改公告
   updateNotice: function (e) {
-    console.log(this.data.oldCode)
-    console.log(this.data.code)
+    if (app.globalData.teamCode == null) {
+      wx.showToast({
+        title: '请先创建队伍！！！',
+        icon: 'none',
+        duration: 2000,
+        mask: false
+      })
+      return
+    }
+   
     var that = this
+    if (this.data.code == '') {
+      return
+    }
     if (this.data.code > this.data.oldCode || this.data.code == 0) {
       wx.showToast({
         title: '没有当前输入编号的公告！！！',
@@ -189,6 +239,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log('查询内容：'+res.data)
         if (res.data[0] == null){
           
           that.setData({
